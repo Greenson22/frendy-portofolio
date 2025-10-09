@@ -16,7 +16,7 @@ const FeatureShowcaseItem: React.FC<FeatureShowcaseItemProps> = ({ feature, inde
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      viewport={{  }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
       className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
     >
