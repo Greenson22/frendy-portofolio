@@ -1,8 +1,38 @@
 import Heading from "@/components/elements/Heading";
 import Link from "next/link";
 import React from 'react';
+import Image from "next/image";
 
-// Komponen helper bisa kita letakkan di sini karena hanya dipakai di halaman ini
+// Data untuk galeri screenshot agar mudah dikelola
+const screenshots = [
+  {
+    imageSrc: "/images/rspace/dashboard.jpg",
+    title: "Halaman Dashboard",
+    description: "Ini adalah pusat kendali aplikasi. Pengguna dapat melihat ringkasan tugas, progres terbaru, dan mendapatkan akses cepat ke semua fitur utama RSpace dengan antarmuka yang bersih dan informatif."
+  },
+  {
+    imageSrc: "/images/rspace/topics.jpg",
+    title: "Halaman Topics",
+    description: "Fitur ini memungkinkan pengguna untuk mengorganisir konten dan catatan ke dalam topik-topik spesifik. Setiap topik berfungsi sebagai wadah untuk jurnal, tugas, dan materi pembelajaran terkait."
+  },
+  {
+    imageSrc: "/images/rspace/mytasks.jpg",
+    title: "Halaman My Tasks",
+    description: "Manajemen tugas yang terintegrasi di mana pengguna dapat membuat, mengedit, dan melacak semua tugas mereka. Fitur ini membantu meningkatkan produktivitas dan memastikan tidak ada pekerjaan yang terlewat."
+  },
+  {
+    imageSrc: "/images/rspace/progress.jpg",
+    title: "Halaman Progress",
+    description: "Visualisasi data progres pengguna disajikan di sini. Melalui grafik dan statistik, pengguna dapat memantau kemajuan mereka dalam menyelesaikan tugas atau mempelajari topik baru, memberikan motivasi tambahan."
+  },
+  {
+    imageSrc: "/images/rspace/jurnal.jpg",
+    title: "Halaman Jurnal",
+    description: "Sebuah editor teks dan kode yang kaya fitur memungkinkan pengguna untuk menulis jurnal, catatan, atau bahkan potongan kode. Dilengkapi dengan syntax highlighting untuk pengalaman menulis yang lebih baik."
+  }
+];
+
+// Komponen helper
 const ContentSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="mb-12">
     <h2 className="text-3xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-200">{title}</h2>
@@ -12,7 +42,7 @@ const ContentSection = ({ title, children }: { title: string, children: React.Re
   </div>
 );
 
-// Ini adalah halaman statis untuk proyek RSpace
+// Halaman statis untuk proyek RSpace
 export default function RSpaceProjectPage() {
   return (
     <div className="py-12 md:py-20">
@@ -24,6 +54,7 @@ export default function RSpaceProjectPage() {
         <Heading level={1} className="text-gray-900 text-center">RSpace: Aplikasi Flutter Lintas Platform</Heading>
         <p className="text-center text-xl text-gray-500 mt-2 mb-12">Studi Kasus Detail</p>
 
+        {/* --- BAGIAN KONTEN YANG LAMA --- */}
         <ContentSection title="Deskripsi Proyek">
           <p>RSpace adalah aplikasi serbaguna yang dikembangkan menggunakan Flutter, dirancang untuk berjalan mulus di platform Android dan desktop. Aplikasi ini dibuat oleh Frendy Rikal Gerung dan berfungsi sebagai platform yang kuat untuk manajemen konten, produktivitas, dan pembelajaran.</p>
           <p>Dengan fokus pada pengalaman pengguna yang kaya dan fungsionalitas yang luas, RSpace memanfaatkan berbagai teknologi modern untuk memberikan solusi yang komprehensif, mulai dari editor kode terintegrasi hingga fitur berbasis AI dengan Google Gemini.</p>
@@ -77,7 +108,37 @@ export default function RSpaceProjectPage() {
             <div className="bg-gray-50 p-4 rounded-lg"><p className="font-bold text-gray-800">API & Integrasi:</p><p>Google Mobile Ads, Google Gemini</p></div>
           </div>
         </ContentSection>
-        
+
+        {/* --- BAGIAN GALERI SCREENSHOT YANG BARU --- */}
+        <ContentSection title="Galeri Screenshot">
+          <div className="flex flex-col gap-16 md:gap-24">
+            {screenshots.map((screenshot, index) => (
+              <div 
+                key={screenshot.title}
+                className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+              >
+                <div className="w-full lg:w-1/3 flex-shrink-0">
+                  <div className="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[550px] w-[270px] shadow-xl">
+                    <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden">
+                      <Image
+                        src={screenshot.imageSrc}
+                        alt={`Screenshot ${screenshot.title}`}
+                        width={250}
+                        height={530}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full lg:w-2/3 text-center lg:text-left">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">{screenshot.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{screenshot.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </ContentSection>
+
       </div>
     </div>
   );
