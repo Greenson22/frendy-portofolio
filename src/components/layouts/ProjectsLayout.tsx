@@ -1,26 +1,28 @@
 import React from 'react';
 import Heading from "../elements/Heading";
 import ProjectCard from "../fragments/ProjectCard";
-import { getAllProjects } from '@/lib/projects'; // Impor data proyek
+// Tidak perlu lagi import dari lib
 
 const ProjectsLayout: React.FC = () => {
-  const projects = getAllProjects(); // Ambil semua data proyek
+  // Data proyek RSpace sekarang diletakkan langsung di sini
+  const rspaceProject = {
+    href: "/proyek/rspace", // Link langsung ke halaman statis baru
+    title: "RSpace: Aplikasi Flutter Lintas Platform",
+    summary: "Aplikasi serbaguna (Android & Desktop) untuk manajemen konten, produktivitas, dan pembelajaran dengan integrasi AI.",
+    tags: ["Flutter", "Dart", "Provider", "Google Gemini"],
+  };
 
   return (
     <section id="projects" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto">
         <Heading level={2} className="mb-12">Proyek Pilihan</Heading>
-        {/* Pastikan hanya ada 1 proyek, jadi kita tidak perlu grid yang rumit */}
         <div className="max-w-2xl mx-auto">
-          {projects.map((project) => (
-            <ProjectCard 
-              key={project.slug} 
-              slug={project.slug}
-              title={project.title}
-              summary={project.summary}
-              tags={project.tags}
-            />
-          ))}
+          <ProjectCard 
+            href={rspaceProject.href}
+            title={rspaceProject.title}
+            summary={rspaceProject.summary}
+            tags={rspaceProject.tags}
+          />
         </div>
       </div>
     </section>
