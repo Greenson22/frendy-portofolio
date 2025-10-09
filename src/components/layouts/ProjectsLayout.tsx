@@ -9,9 +9,16 @@ const projectsData = [
   {
     title: 'RSpace',
     description: 'Aplikasi Android & Desktop untuk manajemen konten, produktivitas, dan pembelajaran dengan integrasi AI (Google Gemini).',
-    image: '/images/rspace/icon.png', // <-- Pastikan path ikon RSpace sudah benar di sini
+    image: '/images/rspace/icon.png',
     link: '/proyek/rspace',
     techStack: ['Flutter', 'Dart', 'Google Gemini', 'Provider'],
+  },
+  {
+    title: 'Youtube Music Downloader Suite',
+    description: 'Aplikasi desktop untuk mengunduh musik dari YouTube secara massal berdasarkan daftar dari file.',
+    image: '/images/youtubemusicdownloader/icon.png', // <-- Pastikan Anda memiliki ikon untuk proyek ini
+    link: '/proyek/youtubemusicdownloader',
+    techStack: ['Python', 'Tkinter', 'yt-dlp', 'Threading'],
   },
   // ... (tambahan proyek lain jika ada)
 ];
