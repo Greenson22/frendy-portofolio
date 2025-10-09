@@ -8,15 +8,16 @@ type Skill = {
   level: string;
 };
 
+// Data keahlian yang sudah diperbarui
 const skillsData: Skill[] = [
+  { name: 'Web Development', level: 'Mahir' },
+  { name: 'Android Development', level: 'Mahir' },
+  { name: 'Next.js', level: 'Mahir' },
+  { name: 'Express.js', level: 'Mahir' },
   { name: 'Problem Solving', level: 'Mahir' },
   { name: 'Python', level: 'Mahir' },
   { name: 'JavaScript', level: 'Mahir' },
-  { name: 'Next.js', level: 'Menengah' },
-  { name: 'Express.js', level: 'Menengah' },
   { name: 'Laravel', level: 'Menengah' },
-  { name: 'Web Development', level: 'Mahir' },
-  { name: 'Android Development', level: 'Dasar' },
   { name: 'Game Development', level: 'Dasar' },
 ];
 

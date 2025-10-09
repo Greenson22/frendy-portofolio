@@ -10,14 +10,18 @@ const ContactLayout: React.FC = () => {
           Saya selalu terbuka untuk diskusi, kolaborasi, atau peluang baru. Jangan ragu untuk menghubungi saya.
         </p>
         <div className="flex justify-center items-center space-x-6">
-          <a href="mailto:frendy.rikal.gerung@dummy.com" className="text-xl font-semibold text-blue-600 hover:underline">
-            frendy.rikal.gerung@dummy.com
+          <a href="mailto:fredegerung634@gmail.com" className="text-xl font-semibold text-blue-600 hover:underline">
+            fredegerung634@gmail.com
           </a>
         </div>
         <div className="mt-8 flex justify-center space-x-6">
-          {/* Ganti dengan link profil Anda yang sebenarnya */}
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900">GitHub</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900">LinkedIn</a>
+          {/* Link GitHub dan LinkedIn yang sudah diperbarui */}
+          <a href="https://github.com/Greenson22" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
+            GitHub
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>
