@@ -1,32 +1,56 @@
-import Link from 'next/link';
-import React from 'react';
+"use client"; // <-- Pastikan ini ada di baris paling atas
 
-// Mengubah 'slug' menjadi 'href' agar lebih umum
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion, MotionProps } from 'framer-motion'; // Import motion dan MotionProps
+
 type ProjectCardProps = {
-  href: string;
   title: string;
-  summary: string;
-  tags: string[];
+  description: string;
+  image: string;
+  link: string;
+  techStack: string[];
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ href, title, summary, tags }) => {
+// Kita bisa mendefinisikan varian animasi di sini atau langsung di motion.div
+const cardAnimation: MotionProps = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false, amount: 0.2 }, // Animasi akan berjalan setiap kali 20% kartu terlihat
+  transition: { duration: 0.6, ease: "easeInOut" }
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, link, techStack }) => {
   return (
-    <Link href={href} className="block bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-      <div className="p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
-        <p className="text-gray-700 mb-4">{summary}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag) => (
-            <span key={tag} className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
-              {tag}
+    <motion.div 
+      {...cardAnimation} // Terapkan animasi di sini
+      className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transform transition-transform duration-300 hover:scale-[1.02]"
+    >
+      <div className="relative w-full h-48 bg-gray-200">
+        <Image 
+          src={image} 
+          alt={`Thumbnail proyek ${title}`} 
+          layout="fill" 
+          objectFit="cover" 
+          className="transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+      <div className="p-6 flex-grow flex flex-col">
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+        <p className="text-gray-600 mb-4 flex-grow">{description}</p>
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {techStack.map((tech) => (
+            <span key={tech} className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+              {tech}
             </span>
           ))}
         </div>
-        <div className="inline-block mt-2 text-blue-600 font-semibold hover:underline">
-          Lihat Studi Kasus →
-        </div>
+        <Link href={link} className="mt-6 inline-block text-blue-600 hover:underline font-medium self-start">
+          Lihat Detail &rarr;
+        </Link>
       </div>
-    </Link>
+    </motion.div>
   );
 };
 

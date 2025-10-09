@@ -1,15 +1,29 @@
+"use client";
+
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
+
+// Varian untuk item individu di dalam grid
+export const skillItemVariants: Variants = {
+    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        transition: { duration: 0.5, ease: "easeOut" }
+    }
+};
 
 type SkillCardProps = {
-  icon: React.ReactNode; // Tipe untuk menerima komponen React sebagai ikon
+  icon: React.ReactNode;
   name: string;
   level: string;
 };
 
 const SkillCard: React.FC<SkillCardProps> = ({ icon, name, level }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-300">
-      {/* Container untuk Ikon */}
+    // Kita tidak perlu menambahkan varian di sini karena akan diatur oleh parent
+    <div className="bg-white p-6 rounded-lg shadow-lg text-center flex flex-col items-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
       <div className="text-blue-600 mb-4">
         {icon}
       </div>

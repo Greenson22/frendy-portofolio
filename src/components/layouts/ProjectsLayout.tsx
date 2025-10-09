@@ -1,31 +1,45 @@
+"use client"; // <-- Pastikan ini ada di baris paling atas
+
 import React from 'react';
 import Heading from "../elements/Heading";
 import ProjectCard from "../fragments/ProjectCard";
-// Tidak perlu lagi import dari lib
+import { motion, MotionProps } from 'framer-motion';
+
+const projectsData = [
+  {
+    title: 'RSpace',
+    description: 'Aplikasi Android & Desktop untuk manajemen konten, produktivitas, dan pembelajaran dengan integrasi AI (Google Gemini).',
+    image: '/images/rspace/icon.png', // <-- Pastikan path ikon RSpace sudah benar di sini
+    link: '/proyek/rspace',
+    techStack: ['Flutter', 'Dart', 'Google Gemini', 'Provider'],
+  },
+  // ... (tambahan proyek lain jika ada)
+];
+
+// Animasi untuk bagian section keseluruhan (opsional, tapi bagus untuk konsistensi)
+const sectionAnimation: MotionProps = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false, amount: 0.2 },
+  transition: { duration: 0.6, ease: "easeInOut" }
+};
 
 const ProjectsLayout: React.FC = () => {
-  // Data proyek RSpace sekarang diletakkan langsung di sini
-  const rspaceProject = {
-    href: "/proyek/rspace", // Link langsung ke halaman statis baru
-    title: "RSpace: Aplikasi Flutter Lintas Platform",
-    summary: "Aplikasi serbaguna (Android & Desktop) untuk manajemen konten, produktivitas, dan pembelajaran dengan integrasi AI.",
-    tags: ["Flutter", "Dart", "Provider", "Google Gemini"],
-  };
-
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <motion.section 
+      id="projects" 
+      className="py-20 bg-gray-50"
+      {...sectionAnimation} // Terapkan animasi untuk section
+    >
+      <div className="max-w-4xl mx-auto">
         <Heading level={2} className="mb-12">Proyek Pilihan</Heading>
-        <div className="max-w-2xl mx-auto">
-          <ProjectCard 
-            href={rspaceProject.href}
-            title={rspaceProject.title}
-            summary={rspaceProject.summary}
-            tags={rspaceProject.tags}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectsData.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

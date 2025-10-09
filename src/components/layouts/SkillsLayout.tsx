@@ -1,8 +1,9 @@
+"use client";
+
 import React from 'react';
 import Heading from "../elements/Heading";
 import SkillCard from "../fragments/SkillCard";
-
-// Import ikon yang akan kita gunakan dari lucide-react
+import { motion, Variants } from 'framer-motion';
 import { 
   Globe, 
   Smartphone, 
@@ -14,15 +15,8 @@ import {
   Gamepad2 
 } from 'lucide-react';
 
-// Mendefinisikan tipe data untuk skill, sekarang dengan ikon
-type Skill = {
-  name: string;
-  level: string;
-  icon: React.ReactNode; // Properti baru untuk ikon
-};
-
-// Data keahlian yang sudah diperbarui dengan ikon
-const skillsData: Skill[] = [
+// Data lengkap untuk keahlian
+const skillsData = [
   { 
     name: 'Web Development', 
     level: 'Mahir', 
@@ -61,7 +55,7 @@ const skillsData: Skill[] = [
   { 
     name: 'Laravel', 
     level: 'Menengah', 
-    icon: <Server size={48} /> // Bisa menggunakan ikon yang sama jika relevan
+    icon: <Server size={48} />
   },
   { 
     name: 'Game Development', 
@@ -70,23 +64,50 @@ const skillsData: Skill[] = [
   },
 ];
 
+// Varian untuk container grid
+const gridContainerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1 // Memberi jeda antar setiap item
+        }
+    }
+};
+
+// Varian untuk setiap item di dalam grid
+const gridItemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 const SkillsLayout: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <motion.section 
+        id="skills" 
+        className="py-20 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }} // amount: 0.2 berarti animasi terpicu saat 20% elemen terlihat
+    >
       <div className="max-w-4xl mx-auto">
         <Heading level={2} className="mb-12">Keahlian Utama</Heading>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <motion.div 
+            className="grid grid-cols-2 md:grid-cols-3 gap-8"
+            variants={gridContainerVariants}
+        >
           {skillsData.map((skill) => (
-            <SkillCard 
-              key={skill.name} 
-              name={skill.name} 
-              level={skill.level}
-              icon={skill.icon} // Mengirim properti ikon ke SkillCard
-            />
+            <motion.div key={skill.name} variants={gridItemVariants}>
+              <SkillCard 
+                name={skill.name} 
+                level={skill.level}
+                icon={skill.icon}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
