@@ -2,8 +2,9 @@ import Heading from "@/components/elements/Heading";
 import Link from "next/link";
 import React from 'react';
 import Image from "next/image";
+import { Github, Download } from "lucide-react";
 
-// Data untuk galeri screenshot agar mudah dikelola
+// Data untuk galeri screenshot dengan ekstensi .jpg
 const screenshots = [
   {
     imageSrc: "/images/rspace/dashboard.jpg",
@@ -32,7 +33,7 @@ const screenshots = [
   }
 ];
 
-// Komponen helper
+// Komponen helper untuk seksi konten
 const ContentSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="mb-12">
     <h2 className="text-3xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-200">{title}</h2>
@@ -42,19 +43,55 @@ const ContentSection = ({ title, children }: { title: string, children: React.Re
   </div>
 );
 
-// Halaman statis untuk proyek RSpace
+// Halaman statis dan lengkap untuk proyek RSpace
 export default function RSpaceProjectPage() {
+  const githubUrl = "https://github.com/Greenson22/RSpace-Android";
+
   return (
     <div className="py-12 md:py-20">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         <Link href="/#projects" className="text-blue-600 hover:underline mb-8 inline-block">
           &larr; Kembali ke Halaman Utama
         </Link>
         
-        <Heading level={1} className="text-gray-900 text-center">RSpace: Aplikasi Flutter Lintas Platform</Heading>
-        <p className="text-center text-xl text-gray-500 mt-2 mb-12">Studi Kasus Detail</p>
+        {/* Header dengan Logo, Judul, dan Tombol CTA */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <Image 
+              src="/images/rspace/icon.png"
+              alt="Logo Aplikasi RSpace"
+              width={64}
+              height={64}
+              className="rounded-xl shadow-md"
+            />
+            <Heading level={1} className="text-gray-900 text-center !text-4xl md:!text-5xl">
+              RSpace: Aplikasi Flutter
+            </Heading>
+          </div>
+          <p className="text-center text-xl text-gray-500 mt-2">
+            Studi Kasus Detail
+          </p>
+          <div className="mt-8 flex justify-center items-center gap-4">
+            <a 
+              href={githubUrl}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-white font-bold rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              <Github size={20} />
+              Lihat di GitHub
+            </a>
+            <a 
+              href="#"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <Download size={20} />
+              Download App
+            </a>
+          </div>
+        </div>
 
-        {/* --- BAGIAN KONTEN YANG LAMA --- */}
+        {/* --- KONTEN STUDI KASUS --- */}
         <ContentSection title="Deskripsi Proyek">
           <p>RSpace adalah aplikasi serbaguna yang dikembangkan menggunakan Flutter, dirancang untuk berjalan mulus di platform Android dan desktop. Aplikasi ini dibuat oleh Frendy Rikal Gerung dan berfungsi sebagai platform yang kuat untuk manajemen konten, produktivitas, dan pembelajaran.</p>
           <p>Dengan fokus pada pengalaman pengguna yang kaya dan fungsionalitas yang luas, RSpace memanfaatkan berbagai teknologi modern untuk memberikan solusi yang komprehensif, mulai dari editor kode terintegrasi hingga fitur berbasis AI dengan Google Gemini.</p>
@@ -109,7 +146,6 @@ export default function RSpaceProjectPage() {
           </div>
         </ContentSection>
 
-        {/* --- BAGIAN GALERI SCREENSHOT YANG BARU --- */}
         <ContentSection title="Galeri Screenshot">
           <div className="flex flex-col gap-16 md:gap-24">
             {screenshots.map((screenshot, index) => (
