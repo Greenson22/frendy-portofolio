@@ -3,6 +3,7 @@ import React from 'react';
 import RSpaceHeroLayout from '../layouts/RSpaceHeroLayout';
 import RSpaceOverviewLayout from '../layouts/RSpaceOverviewLayout';
 import RSpaceFeaturesLayout from '../layouts/RSpaceFeaturesLayout';
+import FooterLayout from '../layouts/FooterLayout';
 
 // Data deskripsi fitur yang telah disempurnakan
 const featuresShowcase = [
@@ -46,6 +47,7 @@ const RSpaceView: React.FC = () => {
       <RSpaceHeroLayout />
       <RSpaceOverviewLayout techStack={techStack} />
       <RSpaceFeaturesLayout features={featuresShowcase} />
+      <FooterLayout />
     </div>
   );
 };

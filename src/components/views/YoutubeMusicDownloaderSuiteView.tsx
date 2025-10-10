@@ -3,6 +3,7 @@ import React from 'react';
 import YoutubeMusicDownloaderSuiteHeroLayout from '../layouts/YoutubeMusicDownloaderSuiteHeroLayout';
 import YoutubeMusicDownloaderSuiteOverviewLayout from '../layouts/YoutubeMusicDownloaderSuiteOverviewLayout';
 import YoutubeMusicDownloaderSuiteFeaturesLayout from '../layouts/YoutubeMusicDownloaderSuiteFeaturesLayout'; // <-- Impor baru
+import FooterLayout from '../layouts/FooterLayout';
 
 // Data untuk galeri screenshot
 const featuresShowcase = [
@@ -34,6 +35,7 @@ const YoutubeMusicDownloaderSuiteView: React.FC = () => {
       <YoutubeMusicDownloaderSuiteOverviewLayout techStack={techStack} />
       {/* --- BAGIAN BARU DITAMBAHKAN DI SINI --- */}
       <YoutubeMusicDownloaderSuiteFeaturesLayout features={featuresShowcase} />
+      <FooterLayout />
     </div>
   );
 };
