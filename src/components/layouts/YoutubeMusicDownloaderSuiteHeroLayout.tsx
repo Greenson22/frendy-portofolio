@@ -15,7 +15,8 @@ const itemVariants: Variants = {
 };
 
 const YoutubeMusicDownloaderSuiteHeroLayout: React.FC = () => {
-  const githubUrl = "https://github.com/Greenson22/Youtube-Music-Downloader-Suite";
+  // --- TAUTAN DIPERBARUI DI SINI ---
+  const githubUrl = "https://github.com/Greenson22/Music-Manager.git";
 
   return (
     <motion.header
@@ -31,7 +32,6 @@ const YoutubeMusicDownloaderSuiteHeroLayout: React.FC = () => {
           </Link>
         </motion.div>
         <motion.div variants={itemVariants} className="flex justify-center items-center gap-4 mb-4">
-          {/* Ganti dengan path ikon yang sesuai untuk proyek ini */}
           <Image src="/images/youtubemusicdownloader/icon.png" alt="Logo Youtube Music Downloader Suite" width={64} height={64} className="rounded-xl shadow-md" />
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Youtube Music Downloader Suite</h1>
         </motion.div>

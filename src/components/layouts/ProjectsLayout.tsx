@@ -16,7 +16,8 @@ const projectsData = [
   {
     title: 'Youtube Music Downloader Suite',
     description: 'Aplikasi desktop untuk mengunduh musik dari YouTube secara massal berdasarkan daftar dari file.',
-    image: '/images/youtubemusicdownloader/icon.png', // <-- Pastikan Anda memiliki ikon untuk proyek ini
+    // --- ICON DIPERBARUI DI SINI ---
+    image: '/images/youtubemusicdownloader/icon.png', 
     link: '/proyek/youtubemusicdownloader',
     techStack: ['Python', 'Tkinter', 'yt-dlp', 'Threading'],
   },
