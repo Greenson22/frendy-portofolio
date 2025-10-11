@@ -1,94 +1,49 @@
+// src/components/layouts/SkillsLayout.tsx
+
 "use client";
 
 import React from 'react';
 import Heading from "../elements/Heading";
-import SkillCard from "../fragments/SkillCard";
+import SkillListItem from '../fragments/SkillListItem'; // <-- Impor komponen baru
 import { motion, Variants } from 'framer-motion';
 
-// Impor ikon dari Lucide (untuk yang non-brand)
+// Impor ikon
 import { BrainCircuit, Gamepad2 } from 'lucide-react';
-
-// Impor LOGO ASLI dari React Icons
 import { 
-    SiPython, 
-    SiJavascript, 
-    SiNextdotjs, 
-    SiExpress, 
-    SiLaravel, 
-    SiAndroid,
-    SiCplusplus // <-- Ikon baru
+    SiPython, SiJavascript, SiNextdotjs, SiExpress, SiLaravel, 
+    SiAndroid, SiCplusplus 
 } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa'; // <-- Ikon baru
+import { FaJava } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
 
-// Tipe data untuk skill
+// Tipe data baru untuk skill
 type Skill = {
   name: string;
-  level: string;
+  level: number; // Level diubah menjadi angka
   icon: React.ReactNode;
+  category: 'tech' | 'professional';
 };
 
-// Data keahlian yang sudah diperbarui dengan Java, C++, dan level baru
+// Data keahlian diperbarui dengan level numerik dan kategori
 const skillsData: Skill[] = [
-  { 
-    name: 'Python', 
-    level: 'Mahir', 
-    icon: <SiPython size={48} className="text-[#3776AB]" /> 
-  },
-  { 
-    name: 'Web Development', 
-    level: 'Mahir', 
-    icon: <TbWorldWww size={48} className="text-sky-500" /> 
-  },
-  { 
-    name: 'Android Development', 
-    level: 'Mahir', 
-    icon: <SiAndroid size={48} className="text-[#3DDC84]" />
-  },
-  { 
-    name: 'Next.js', 
-    level: 'Mahir', 
-    icon: <SiNextdotjs size={48} className="text-black dark:text-white" />
-  },
-  { 
-    name: 'Express.js', 
-    level: 'Mahir', 
-    icon: <SiExpress size={48} className="text-black dark:text-white" />
-  },
-  { 
-    name: 'Problem Solving', 
-    level: 'Mahir', 
-    icon: <BrainCircuit size={48} className="text-amber-500" /> 
-  },
-  { 
-    name: 'JavaScript', 
-    level: 'Mahir', 
-    icon: <SiJavascript size={48} className="text-[#F7DF1E]" /> 
-  },
-  { 
-    name: 'Java', 
-    level: 'Menengah', // <-- Keahlian baru
-    icon: <FaJava size={48} className="text-[#007396]" />
-  },
-  { 
-    name: 'C++', 
-    level: 'Menengah', // <-- Keahlian baru
-    icon: <SiCplusplus size={48} className="text-[#00599C]" />
-  },
-  { 
-    name: 'Laravel', 
-    level: 'Menengah', 
-    icon: <SiLaravel size={48} className="text-[#FF2D20]" />
-  },
-  { 
-    name: 'Game Development', 
-    level: 'Menengah', // <-- Level diperbarui
-    icon: <Gamepad2 size={48} className="text-indigo-500" />
-  },
+  // Kategori Teknologi & Bahasa Pemrograman
+  { name: 'Web Development', level: 95, icon: <TbWorldWww size={36} className="text-sky-500" />, category: 'tech' },
+  { name: 'Android Development', level: 90, icon: <SiAndroid size={36} className="text-[#3DDC84]" />, category: 'tech' },
+  { name: 'Next.js', level: 90, icon: <SiNextdotjs size={36} className="text-black dark:text-white" />, category: 'tech' },
+  { name: 'Python', level: 85, icon: <SiPython size={36} className="text-[#3776AB]" />, category: 'tech' },
+  { name: 'JavaScript', level: 85, icon: <SiJavascript size={36} className="text-[#F7DF1E]" />, category: 'tech' },
+  { name: 'Express.js', level: 80, icon: <SiExpress size={36} className="text-black dark:text-white" />, category: 'tech' },
+  { name: 'Java', level: 75, icon: <FaJava size={36} className="text-[#007396]" />, category: 'tech' },
+  { name: 'C++', level: 70, icon: <SiCplusplus size={36} className="text-[#00599C]" />, category: 'tech' },
+  { name: 'Laravel', level: 65, icon: <SiLaravel size={36} className="text-[#FF2D20]" />, category: 'tech' },
+  
+  // Kategori Keahlian Profesional
+  { name: 'Problem Solving', level: 95, icon: <BrainCircuit size={36} className="text-amber-500" />, category: 'professional' },
+  { name: 'Game Development', level: 70, icon: <Gamepad2 size={36} className="text-indigo-500" />, category: 'professional' },
 ];
 
-// Varian untuk container grid
-const gridContainerVariants: Variants = {
+// Animasi untuk container
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -98,38 +53,51 @@ const gridContainerVariants: Variants = {
     }
 };
 
-// Varian untuk setiap item di dalam grid
-const gridItemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
-
 const SkillsLayout: React.FC = () => {
+  const techSkills = skillsData.filter(s => s.category === 'tech');
+  const professionalSkills = skillsData.filter(s => s.category === 'professional');
+
   return (
     <motion.section 
         id="skills" 
-        className="py-20 bg-gray-50"
+        className="py-20 bg-slate-100" // Warna latar sedikit diubah
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
+        variants={containerVariants}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         <Heading level={2} className="mb-12">Keahlian Utama</Heading>
-        {/* Mengubah md:grid-cols-3 menjadi md:grid-cols-4 agar lebih pas */}
-        <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
-            variants={gridContainerVariants}
-        >
-          {skillsData.map((skill) => (
-            <motion.div key={skill.name} variants={gridItemVariants}>
-              <SkillCard 
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          
+          {/* Kolom Kiri: Teknologi */}
+          <motion.div variants={containerVariants}>
+            <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-blue-500 pb-2">Teknologi & Bahasa Pemrograman</h3>
+            {techSkills.map((skill) => (
+              <SkillListItem 
+                key={skill.name} 
                 name={skill.name} 
                 level={skill.level}
                 icon={skill.icon}
               />
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Kolom Kanan: Keahlian Profesional */}
+          <motion.div variants={containerVariants}>
+            <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-amber-500 pb-2">Keahlian Profesional</h3>
+            {professionalSkills.map((skill) => (
+              <SkillListItem 
+                key={skill.name} 
+                name={skill.name} 
+                level={skill.level}
+                icon={skill.icon}
+              />
+            ))}
+          </motion.div>
+
+        </div>
       </div>
     </motion.section>
   );
