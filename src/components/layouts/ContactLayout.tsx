@@ -22,8 +22,8 @@ const itemVariants: Variants = {
 
 const ContactLayout: React.FC = () => {
   return (
-    <motion.section
-      id="contact"
+    <motion.section 
+      id="contact" 
       className="py-20 bg-lime-50"
       variants={containerVariants}
       initial="hidden"
@@ -40,12 +40,12 @@ const ContactLayout: React.FC = () => {
 
         {/* Grid untuk Kartu Kontak */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-
+          
           {/* Kartu Email */}
-          <motion.a
+          <motion.a 
             href="mailto:fredegerung634@gmail.com"
             variants={itemVariants}
-            className="group block p-8 bg-white rounded-lg border hover:border-green-500 hover:shadow-lg transition-all duration-300"
+            className="group block p-8 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border-l-4 border-green-400"
           >
             <div className="flex justify-between items-start">
               <div>
@@ -60,9 +60,9 @@ const ContactLayout: React.FC = () => {
           </motion.a>
 
           {/* Kartu Sosial Media */}
-          <motion.div
+          <motion.div 
             variants={itemVariants}
-            className="p-8 bg-white rounded-lg border"
+            className="p-8 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border-l-4 border-slate-400"
           >
             <div className="bg-slate-100 p-3 rounded-lg inline-block mb-4">
               <Sparkles className="text-slate-600" size={28}/>
