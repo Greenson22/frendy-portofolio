@@ -42,28 +42,28 @@ const RSpaceOverviewLayout: React.FC<RSpaceOverviewLayoutProps> = ({ techStack }
             </h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1"><BrainCircuit size={24} /></div>
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1"><BrainCircuit size={24} /></div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-700">Spaced Repetition System (SRS)</h3>
                   <p className="text-slate-600">Jadwalkan tinjauan materi secara otomatis berdasarkan kurva lupa untuk memaksimalkan retensi memori jangka panjang.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1"><Bot size={24} /></div>
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1"><Bot size={24} /></div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-700">Asisten AI "Flo" & Integrasi Gemini</h3>
                   <p className="text-slate-600">Flo memberikan saran proaktif berdasarkan data Anda, sementara Gemini membantu membuat kuis, konten HTML, dan menemukan tautan cerdas antar materi.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1"><Zap size={24} /></div>
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1"><Zap size={24} /></div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-700">Manajemen Terpusat</h3>
                   <p className="text-slate-600">Kelola semua aspek pembelajaran—mulai dari catatan, tugas, hingga pelacakan waktu—dalam satu dasbor terpadu tanpa perlu berganti aplikasi.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1"><Award size={24} /></div>
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1"><Award size={24} /></div>
                 <div>
                   <h3 className="text-xl font-semibold text-slate-700">Gamifikasi dengan Sistem Neuron</h3>
                   <p className="text-slate-600">Kumpulkan poin "Neuron" setiap kali Anda menyelesaikan sesi belajar atau menghapus data, menambahkan elemen motivasi dalam proses belajar.</p>
@@ -73,9 +73,9 @@ const RSpaceOverviewLayout: React.FC<RSpaceOverviewLayoutProps> = ({ techStack }
           </section>
 
         </motion.div>
-        <motion.aside 
-          {...scrollAnimation} 
-          transition={{ ...scrollAnimation.transition, delay: 0.2 }} 
+        <motion.aside
+          {...scrollAnimation}
+          transition={{ ...scrollAnimation.transition, delay: 0.2 }}
           className="lg:col-span-1"
         >
           <ProjectInfoCard techStack={techStack} />

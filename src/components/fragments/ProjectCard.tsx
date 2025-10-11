@@ -23,16 +23,16 @@ const cardAnimation: MotionProps = {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, link, techStack }) => {
   return (
-    <motion.div 
+    <motion.div
       {...cardAnimation} // Terapkan animasi di sini
       className="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transform transition-transform duration-300 hover:scale-[1.02]"
     >
       <div className="relative w-full h-48 bg-gray-200">
-        <Image 
-          src={image} 
-          alt={`Thumbnail proyek ${title}`} 
-          layout="fill" 
-          objectFit="cover" 
+        <Image
+          src={image}
+          alt={`Thumbnail proyek ${title}`}
+          layout="fill"
+          objectFit="cover"
           className="transition-transform duration-300 hover:scale-105"
         />
       </div>
@@ -41,12 +41,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, li
         <p className="text-gray-600 mb-4 flex-grow">{description}</p>
         <div className="flex flex-wrap gap-2 mt-auto">
           {techStack.map((tech) => (
-            <span key={tech} className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+            <span key={tech} className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
               {tech}
             </span>
           ))}
         </div>
-        <Link href={link} className="mt-6 inline-block text-blue-600 hover:underline font-medium self-start">
+        <Link href={link} className="mt-6 inline-block text-green-600 hover:underline font-medium self-start">
           Lihat Detail &rarr;
         </Link>
       </div>

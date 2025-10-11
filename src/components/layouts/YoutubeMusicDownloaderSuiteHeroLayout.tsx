@@ -20,7 +20,7 @@ const YoutubeMusicDownloaderSuiteHeroLayout: React.FC = () => {
 
   return (
     <motion.header
-      className="bg-slate-900 text-white py-20 md:py-24"
+      className="bg-gray-800 text-white py-20 md:py-24"
       variants={headerVariants}
       initial="hidden"
       animate="visible"

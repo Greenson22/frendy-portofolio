@@ -9,10 +9,10 @@ const NavbarLayout: React.FC = () => {
           Frendy R. Gerung
         </Link>
         <div className="hidden md:flex space-x-6">
-          <Link href="#about" className="text-gray-600 hover:text-blue-600">Tentang</Link>
-          <Link href="#skills" className="text-gray-600 hover:text-blue-600">Keahlian</Link>
-          <Link href="#projects" className="text-gray-600 hover:text-blue-600">Proyek</Link>
-          <Link href="#contact" className="text-gray-600 hover:text-blue-600">Kontak</Link>
+          <Link href="#about" className="text-gray-600 hover:text-green-600">Tentang</Link>
+          <Link href="#skills" className="text-gray-600 hover:text-green-600">Keahlian</Link>
+          <Link href="#projects" className="text-gray-600 hover:text-green-600">Proyek</Link>
+          <Link href="#contact" className="text-gray-600 hover:text-green-600">Kontak</Link>
         </div>
       </div>
     </nav>

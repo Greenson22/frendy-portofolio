@@ -17,7 +17,7 @@ const projectsData = [
     title: 'Youtube Music Downloader Suite',
     description: 'Aplikasi desktop untuk mengunduh musik dari YouTube secara massal berdasarkan daftar dari file.',
     // --- ICON DIPERBARUI DI SINI ---
-    image: '/images/youtubemusicdownloader/icon.png', 
+    image: '/images/youtubemusicdownloader/icon.png',
     link: '/proyek/youtubemusicdownloader',
     techStack: ['Python', 'Tkinter', 'yt-dlp', 'Threading'],
   },
@@ -34,8 +34,8 @@ const sectionAnimation: MotionProps = {
 
 const ProjectsLayout: React.FC = () => {
   return (
-    <motion.section 
-      id="projects" 
+    <motion.section
+      id="projects"
       className="py-20 bg-gray-50"
       {...sectionAnimation} // Terapkan animasi untuk section
     >

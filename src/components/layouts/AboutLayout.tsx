@@ -7,8 +7,8 @@ import { Briefcase, Calendar, GraduationCap, MapPin, Sparkles, Wand2 } from 'luc
 
 const AboutLayout: React.FC = () => {
   return (
-    <motion.section 
-        id="about" 
+    <motion.section
+        id="about"
         className="py-20 bg-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -17,11 +17,11 @@ const AboutLayout: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto px-4">
         <Heading level={2} className="mb-12 text-center">Tentang Saya</Heading>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          
+
           {/* Kolom Kiri: Narasi */}
-          <motion.div 
+          <motion.div
             className="text-gray-700 leading-relaxed space-y-4"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,16 +39,16 @@ const AboutLayout: React.FC = () => {
           </motion.div>
 
           {/* Kolom Kanan: Poin-Poin Kunci dengan Visual yang Ditingkatkan */}
-          <motion.div 
+          <motion.div
             className="space-y-4"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             {/* Kartu Pendidikan */}
-            <div className="p-4 border rounded-lg flex items-start bg-slate-50 hover:shadow-md transition-shadow">
-              <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                <GraduationCap className="text-blue-600" />
+            <div className="p-4 border rounded-lg flex items-start bg-lime-50 hover:shadow-md transition-shadow">
+              <div className="bg-green-100 p-3 rounded-lg mr-4">
+                <GraduationCap className="text-green-600" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800">Pendidikan</h3>
@@ -58,16 +58,16 @@ const AboutLayout: React.FC = () => {
 
             {/* Kartu Info Pribadi dalam Grid */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 border rounded-lg flex items-start bg-slate-50 hover:shadow-md transition-shadow">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <Calendar className="text-green-600" />
+              <div className="p-4 border rounded-lg flex items-start bg-lime-50 hover:shadow-md transition-shadow">
+                <div className="bg-teal-100 p-3 rounded-lg mr-4">
+                  <Calendar className="text-teal-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800">Lahir</h3>
                   <p className="text-gray-600">22 Feb 2002</p>
                 </div>
               </div>
-              <div className="p-4 border rounded-lg flex items-start bg-slate-50 hover:shadow-md transition-shadow">
+              <div className="p-4 border rounded-lg flex items-start bg-lime-50 hover:shadow-md transition-shadow">
                 <div className="bg-purple-100 p-3 rounded-lg mr-4">
                   <MapPin className="text-purple-600" />
                 </div>

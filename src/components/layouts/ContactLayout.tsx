@@ -22,9 +22,9 @@ const itemVariants: Variants = {
 
 const ContactLayout: React.FC = () => {
   return (
-    <motion.section 
-      id="contact" 
-      className="py-20 bg-slate-50"
+    <motion.section
+      id="contact"
+      className="py-20 bg-lime-50"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -40,27 +40,27 @@ const ContactLayout: React.FC = () => {
 
         {/* Grid untuk Kartu Kontak */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          
+
           {/* Kartu Email */}
-          <motion.a 
+          <motion.a
             href="mailto:fredegerung634@gmail.com"
             variants={itemVariants}
-            className="group block p-8 bg-white rounded-lg border hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+            className="group block p-8 bg-white rounded-lg border hover:border-green-500 hover:shadow-lg transition-all duration-300"
           >
             <div className="flex justify-between items-start">
               <div>
-                <div className="bg-blue-100 p-3 rounded-lg inline-block mb-4">
-                  <Mail className="text-blue-600" size={28}/>
+                <div className="bg-green-100 p-3 rounded-lg inline-block mb-4">
+                  <Mail className="text-green-600" size={28}/>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Email</h3>
                 <p className="text-gray-600 mt-1">fredegerung634@gmail.com</p>
               </div>
-              <ArrowUpRight className="text-gray-400 group-hover:text-blue-600 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="text-gray-400 group-hover:text-green-600 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
           </motion.a>
 
           {/* Kartu Sosial Media */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="p-8 bg-white rounded-lg border"
           >
@@ -72,10 +72,10 @@ const ContactLayout: React.FC = () => {
               <a href="https://github.com/Greenson22" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors" aria-label="GitHub">
                 <Github size={32} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors" aria-label="LinkedIn">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-700 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={32} />
               </a>
-              <a href="https://www.facebook.com/frendy.rikal.gerung" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/frendy.rikal.gerung" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-600 transition-colors" aria-label="Facebook">
                 <Facebook size={32} />
               </a>
               <a href="https://www.instagram.com/fr_gerung?igsh=MXNjYms4dWdnbXE2NA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">

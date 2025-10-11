@@ -19,7 +19,7 @@ const YoutubeMusicDownloaderSuiteOverviewLayout: React.FC<YoutubeMusicDownloader
     <main className="max-w-5xl mx-auto py-16 px-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <motion.div {...scrollAnimation} className="lg:col-span-2 space-y-12">
-          
+
           {/* --- BAGIAN DESKRIPSI DIPERBARUI --- */}
           <section>
             <h2 className="text-3xl font-bold text-slate-800 mb-4 flex items-center gap-3">
@@ -42,7 +42,7 @@ const YoutubeMusicDownloaderSuiteOverviewLayout: React.FC<YoutubeMusicDownloader
             </h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1">
                   <ListMusic size={24} />
                 </div>
                 <div>
@@ -51,7 +51,7 @@ const YoutubeMusicDownloaderSuiteOverviewLayout: React.FC<YoutubeMusicDownloader
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1">
                   <Search size={24} />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ const YoutubeMusicDownloaderSuiteOverviewLayout: React.FC<YoutubeMusicDownloader
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-600 p-2 rounded-full mt-1">
+                <div className="bg-green-100 text-green-600 p-2 rounded-full mt-1">
                   <Download size={24} />
                 </div>
                 <div>
@@ -72,9 +72,9 @@ const YoutubeMusicDownloaderSuiteOverviewLayout: React.FC<YoutubeMusicDownloader
           </section>
 
         </motion.div>
-        <motion.aside 
-          {...scrollAnimation} 
-          transition={{ ...scrollAnimation.transition, delay: 0.2 }} 
+        <motion.aside
+          {...scrollAnimation}
+          transition={{ ...scrollAnimation.transition, delay: 0.2 }}
           className="lg:col-span-1"
         >
           <ProjectInfoCard techStack={techStack} />

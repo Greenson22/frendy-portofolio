@@ -13,8 +13,8 @@ type SkillListItemProps = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.5, ease: "easeInOut" }
   }
@@ -30,7 +30,7 @@ const SkillListItem: React.FC<SkillListItemProps> = ({ icon, name, level }) => {
       <div className="flex items-center">
         <div className="w-full bg-slate-200 rounded-full h-2.5 mr-4">
           <motion.div
-            className="bg-blue-600 h-2.5 rounded-full"
+            className="bg-green-600 h-2.5 rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: `${level}%` }}
             viewport={{ once: false, amount: 0.8 }}

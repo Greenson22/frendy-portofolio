@@ -10,10 +10,10 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ children, href, variant = 'primary' }) => {
   const baseStyle = 'px-8 py-3 font-bold rounded-full hover:opacity-90 transition duration-300';
-  
+
   const styles = {
-    primary: 'bg-blue-600 text-white',
-    secondary: 'bg-gray-200 text-gray-800',
+    primary: 'bg-green-600 text-white',
+    secondary: 'bg-green-100 text-green-800',
   };
 
   return (

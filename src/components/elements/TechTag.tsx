@@ -6,7 +6,7 @@ type TechTagProps = {
 
 const TechTag: React.FC<TechTagProps> = ({ children }) => {
   return (
-    <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+    <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
       {children}
     </span>
   );
