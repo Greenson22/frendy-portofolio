@@ -5,64 +5,102 @@ import Image from 'next/image';
 import Heading from "../elements/Heading";
 import Button from "../elements/Button";
 import { motion, Variants } from 'framer-motion';
+import { Github, Linkedin } from 'lucide-react';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
   }
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } }
+const textItemVariants: Variants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0, x: 30, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" } 
+  }
 };
 
 const HeroLayout: React.FC = () => {
   return (
+    // --- PERUBAHAN DI SINI ---
     <motion.section
       id="hero" 
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-20"
-      variants={containerVariants}
+      className="min-h-screen flex items-center justify-center bg-slate-50 py-20 px-4"
       initial="hidden"
-      animate="visible"
+      whileInView="visible" // Mengganti 'animate' dengan 'whileInView'
+      viewport={{ once: false, amount: 0.2 }} // 'once: false' agar animasi berulang
     >
-      <motion.div variants={imageVariants} className="md:w-1/3 mb-8 md:mb-0 md:mr-12 flex-shrink-0">
-        <div className="relative w-64 h-64 mx-auto">
-          <Image
-            src="/images/profile.jpg"
-            alt="Foto Profil Frendy Rikal Gerung"
-            width={300}
-            height={300}
-            className="rounded-full object-cover border-4 border-gray-300 shadow-lg"
-            priority
-          />
-        </div>
-      </motion.div>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* Kolom Kiri: Konten Teks */}
+        <motion.div
+          className="text-center md:text-left"
+          variants={containerVariants} // Tambahkan varian container di sini juga
+        >
+          <motion.p variants={textItemVariants} className="text-xl text-blue-600 font-semibold">
+            Halo, saya
+          </motion.p>
+          
+          <motion.div variants={textItemVariants}>
+            <Heading level={1} className="text-5xl md:text-7xl !text-left">Frendy Rikal Gerung</Heading>
+          </motion.div>
+          
+          <motion.p variants={textItemVariants} className="mt-4 text-xl md:text-2xl text-gray-700">
+            Full-Stack Developer & Problem Solver
+          </motion.p>
 
-      <div className="md:w-2/3">
-        <motion.p variants={itemVariants} className="text-xl text-blue-600 font-semibold">
-          Halo, saya
-        </motion.p>
-        <motion.div variants={itemVariants}>
-          <Heading level={1} className="text-center md:text-left">Frendy Rikal Gerung</Heading>
+          <motion.p variants={textItemVariants} className="mt-6 max-w-lg text-lg text-gray-600">
+            Mahasiswa lulusan Teknik Informatika dengan hasrat untuk menciptakan solusi teknologi yang inovatif, efisien, dan memberikan pengalaman pengguna yang luar biasa.
+          </motion.p>
+          
+          <motion.div variants={textItemVariants} className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+            <Button href="#projects" variant="primary">Lihat Proyek Saya</Button>
+            <Button href="#contact" variant="secondary">Hubungi Saya</Button>
+          </motion.div>
+
+          <motion.div variants={textItemVariants} className="mt-8 flex space-x-6 justify-center md:justify-start">
+            <a href="https://github.com/Greenson22" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              <Github size={28} />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              <Linkedin size={28} />
+            </a>
+          </motion.div>
         </motion.div>
-        <motion.p variants={itemVariants} className="mt-4 text-xl md:text-2xl text-gray-700">
-          Full-Stack Developer & Problem Solver
-        </motion.p>
-        <motion.p variants={itemVariants} className="mt-6 max-w-xl text-lg text-gray-600 mx-auto md:mx-0">
-          Mahasiswa lulusan Teknik Informatika dengan hasrat untuk menciptakan solusi teknologi yang inovatif dan efisien.
-        </motion.p>
-        <motion.div variants={itemVariants} className="mt-8 flex space-x-4 justify-center md:justify-start">
-          <Button href="#projects" variant="primary">Lihat Proyek Saya</Button>
-          <Button href="#contact" variant="secondary">Hubungi Saya</Button>
+
+        {/* Kolom Kanan: Gambar */}
+        <motion.div 
+          variants={imageVariants} 
+          className="flex justify-center items-center"
+        >
+          <div className="relative w-80 h-80 md:w-96 md:h-96">
+            {/* Bentuk Latar Belakang */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-3xl transform -rotate-12"></div>
+            
+            {/* Gambar Profil */}
+            <div className="absolute inset-5">
+              <Image
+                src="/images/profile.jpg"
+                alt="Foto Profil Frendy Rikal Gerung"
+                width={384}
+                height={384}
+                className="rounded-2xl object-cover shadow-2xl w-full h-full"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
+        
       </div>
     </motion.section>
   );
