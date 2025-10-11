@@ -15,12 +15,19 @@ const ContactLayout: React.FC = () => {
           </a>
         </div>
         <div className="mt-8 flex justify-center space-x-6">
-          {/* Link GitHub dan LinkedIn yang sudah diperbarui */}
+          {/* Tautan yang sudah ada */}
           <a href="https://github.com/Greenson22" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
             GitHub
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
             LinkedIn
+          </a>
+          {/* --- Tautan baru ditambahkan di sini --- */}
+          <a href="https://www.facebook.com/frendy.rikal.gerung" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/fr_gerung?igsh=MXNjYms4dWdnbXE2NA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 font-medium">
+            Instagram
           </a>
         </div>
       </div>

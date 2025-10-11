@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Heading from "../elements/Heading";
 import Button from "../elements/Button";
 import { motion, Variants } from 'framer-motion';
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -32,20 +32,19 @@ const imageVariants: Variants = {
 
 const HeroLayout: React.FC = () => {
   return (
-    // --- PERUBAHAN DI SINI ---
     <motion.section
       id="hero" 
       className="min-h-screen flex items-center justify-center bg-slate-50 py-20 px-4"
       initial="hidden"
-      whileInView="visible" // Mengganti 'animate' dengan 'whileInView'
-      viewport={{ once: false, amount: 0.2 }} // 'once: false' agar animasi berulang
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
     >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Kolom Kiri: Konten Teks */}
         <motion.div
           className="text-center md:text-left"
-          variants={containerVariants} // Tambahkan varian container di sini juga
+          variants={containerVariants}
         >
           <motion.p variants={textItemVariants} className="text-xl text-blue-600 font-semibold">
             Halo, saya
@@ -74,6 +73,12 @@ const HeroLayout: React.FC = () => {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               <Linkedin size={28} />
+            </a>
+            <a href="https://www.facebook.com/frendy.rikal.gerung" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-colors">
+              <Facebook size={28} />
+            </a>
+            <a href="https://www.instagram.com/fr_gerung?igsh=MXNjYms4dWdnbXE2NA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-500 transition-colors">
+              <Instagram size={28} />
             </a>
           </motion.div>
         </motion.div>
