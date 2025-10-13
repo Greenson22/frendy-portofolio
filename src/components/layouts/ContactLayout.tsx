@@ -1,3 +1,5 @@
+// src/components/layouts/ContactLayout.tsx
+
 "use client";
 
 import React from 'react';
@@ -72,7 +74,7 @@ const ContactLayout: React.FC = () => {
               <a href="https://github.com/Greenson22" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors" aria-label="GitHub">
                 <Github size={32} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-700 transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/frendy-rikal-gerung-bb450b38a" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-700 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={32} />
               </a>
               <a href="https://www.facebook.com/frendy.rikal.gerung" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-600 transition-colors" aria-label="Facebook">
