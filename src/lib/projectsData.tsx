@@ -1,7 +1,8 @@
 // src/lib/projectsData.tsx
-import { 
+import {
   BrainCircuit, Bot, Zap, Award, ListMusic, Search, Download,
-  Database, FolderArchive, ShieldCheck // <-- Ikon untuk NPWP Manager
+  Database, FolderArchive, ShieldCheck,
+  Archive, FileText, Users, Mail // <-- Ikon untuk Arsip Surat
 } from 'lucide-react';
 import React from 'react';
 
@@ -19,7 +20,8 @@ title: string;
 description: string; // Deskripsi singkat (untuk ProjectCard)
 longDescription: React.ReactNode; // Deskripsi panjang (untuk Overview)
 image: string; // Icon/logo
-githubUrl: string;
+githubUrl: string; // URL GitHub utama, atau frontend jika terpisah
+githubUrlBackend?: string; // URL GitHub backend (opsional)
 techStack: string[];
 mainFeatures: Omit<ProjectFeature, 'imageSrc'>[]; // Fitur unggulan (untuk Overview)
 featureShowcase: ProjectFeature[]; // Galeri/Visualisasi Fitur
@@ -45,8 +47,8 @@ export const projectsData: Project[] = [
   image: '/images/rspace/icon.png',
   githubUrl: 'https://github.com/Greenson22/RSpace-Android',
   techStack: [
-    "Flutter", "Dart", "Provider", "Google Gemini", "Google Mobile Ads", 
-    "Spaced Repetition", "Gamification", "AI Assistant", "Offline First", 
+    "Flutter", "Dart", "Provider", "Google Gemini", "Google Mobile Ads",
+    "Spaced Repetition", "Gamification", "AI Assistant", "Offline First",
     "Data Synchronization", "Secure Storage", "Webview"
   ],
   mainFeatures: [
@@ -135,26 +137,24 @@ export const projectsData: Project[] = [
     }
   ],
   featureShowcase: [
-    { 
-      imageSrc: "/images/youtubemusicdownloader/spotify-populer.png", 
-      title: "Tab Spotify Populer", 
-      description: "Memungkinkan pengguna untuk mencari playlist atau lagu dari Spotify dan menyimpannya sebagai daftar teks (.txt) untuk digunakan dalam proses pencarian video." 
+    {
+      imageSrc: "/images/youtubemusicdownloader/spotify-populer.png",
+      title: "Tab Spotify Populer",
+      description: "Memungkinkan pengguna untuk mencari playlist atau lagu dari Spotify dan menyimpannya sebagai daftar teks (.txt) untuk digunakan dalam proses pencarian video."
     },
-    { 
-      imageSrc: "/images/youtubemusicdownloader/pencarian-musik.png", 
-      title: "Tab Pencarian Musik", 
-      description: "Mengambil daftar lagu dari file teks, kemudian secara otomatis dan simultan mencari video yang relevan di YouTube untuk setiap judul lagu." 
+    {
+      imageSrc: "/images/youtubemusicdownloader/pencarian-musik.png",
+      title: "Tab Pencarian Musik",
+      description: "Mengambil daftar lagu dari file teks, kemudian secara otomatis dan simultan mencari video yang relevan di YouTube untuk setiap judul lagu."
     },
-    { 
-      imageSrc: "/images/youtubemusicdownloader/pengunduh.png", 
-      title: "Tab Pengunduh", 
-      description: "Menampilkan hasil pencarian dalam tabel, memungkinkan pengguna untuk memilih, memfilter, dan mengunduh lagu yang diinginkan sebagai file audio (MP3) atau video." 
+    {
+      imageSrc: "/images/youtubemusicdownloader/pengunduh.png",
+      title: "Tab Pengunduh",
+      description: "Menampilkan hasil pencarian dalam tabel, memungkinkan pengguna untuk memilih, memfilter, dan mengunduh lagu yang diinginkan sebagai file audio (MP3) atau video."
     },
   ],
   showcaseType: 'desktop',
 },
-
-// --- PROYEK NPWP MANAGER (DIPERBARUI) ---
 {
   slug: 'npwp-manager',
   title: 'Aplikasi Pendaftaran NPWP (Asisten Entri Data)',
@@ -198,33 +198,119 @@ export const projectsData: Project[] = [
     }
   ],
   featureShowcase: [
-    { 
+    {
       imageSrc: "/images/npwp-manager/daftar_data.png",
-      title: "Tampilan Utama & Pencarian", 
-      description: "Menampilkan semua data pendaftar dalam tabel. Dilengkapi fitur pencarian instan (Nama/NIK) dan checkbox 'Tampilkan Password' untuk keamanan data sensitif." 
+      title: "Tampilan Utama & Pencarian",
+      description: "Menampilkan semua data pendaftar dalam tabel. Dilengkapi fitur pencarian instan (Nama/NIK) dan checkbox 'Tampilkan Password' untuk keamanan data sensitif."
     },
-    { 
+    {
       imageSrc: "/images/npwp-manager/entri_data.png",
-      title: "Formulir Entri Data", 
-      description: "Tab formulir utama untuk menambah atau mengedit data pemohon secara manual, mencakup data diri, akun, dan status pendaftaran." 
+      title: "Formulir Entri Data",
+      description: "Tab formulir utama untuk menambah atau mengedit data pemohon secara manual, mencakup data diri, akun, dan status pendaftaran."
     },
-    { 
+    {
       imageSrc: "/images/npwp-manager/bantuan_ai.png",
-      title: "Bantuan Entri Data (AI Assist)", 
-      description: "Tab 'Bantuan AI' menyediakan prompt/skema JSON untuk diekstrak via AI eksternal (KTP/KK), dan fitur impor JSON untuk mengisi formulir secara otomatis." 
+      title: "Bantuan Entri Data (AI Assist)",
+      description: "Tab 'Bantuan AI' menyediakan prompt/skema JSON untuk diekstrak via AI eksternal (KTP/KK), dan fitur impor JSON untuk mengisi formulir secara otomatis."
     },
-    { 
+    {
       imageSrc: "/images/npwp-manager/management_document.png",
-      title: "Detail Data & Manajemen Dokumen", 
-      description: "Halaman (read-only) yang menampilkan semua data pemohon, daftar dokumen tersimpan (KTP/KK), dan tombol untuk 'Buka Folder Dokumen' di file explorer." 
+      title: "Detail Data & Manajemen Dokumen",
+      description: "Halaman (read-only) yang menampilkan semua data pemohon, daftar dokumen tersimpan (KTP/KK), dan tombol untuk 'Buka Folder Dokumen' di file explorer."
     },
   ],
   showcaseType: 'desktop',
+},
+
+// --- PROYEK SKRIPSI ARSIP SURAT ---
+{
+  slug: 'arsip-surat-kecamatan',
+  title: 'Sistem Arsip Surat Digital Kec. Motoling Barat',
+  description: 'Aplikasi web (React & Django) untuk digitalisasi, pengelolaan, dan klasifikasi otomatis arsip surat masuk/keluar menggunakan Text Mining dan Naïve Bayes.',
+  longDescription: (
+    <>
+      <p>
+        Proyek ini merupakan <strong>Skripsi S1</strong> saya yang berfokus pada modernisasi pengelolaan arsip di Kantor Kecamatan Motoling Barat[cite: 209, 211]. Sebelumnya, kantor kecamatan masih menggunakan sistem manual dengan buku catatan dan lemari fisik, yang menyebabkan kesulitan pencarian, risiko kerusakan/kehilangan dokumen, dan inefisiensi[cite: 398, 399, 400].
+      </p>
+      <p>
+        Aplikasi web ini dirancang untuk mengatasi masalah tersebut dengan menyediakan platform digital terpusat untuk arsip surat masuk dan keluar[cite: 308, 309, 407, 409]. Tujuan utamanya adalah meningkatkan efisiensi administrasi, memenuhi regulasi pemerintah terkait Sistem Pemerintahan Berbasis Elektronik (SPBE), dan meningkatkan kualitas pelayanan publik[cite: 396, 401, 407, 411, 441, 442, 443, 444].
+      </p>
+      <p>
+        Salah satu fitur unggulan adalah <strong>klasifikasi otomatis surat masuk</strong> menggunakan algoritma Naïve Bayes yang dilatih dengan data teks surat[cite: 308, 313, 410]. Pengembangan dilakukan dengan metode Extreme Programming, menggunakan React JS untuk frontend dan Django untuk backend[cite: 310, 311, 411, 621, 676, 677].
+      </p>
+    </>
+  ),
+  image: '/images/arsip-surat/icon.png', // <-- GANTI DENGAN PATH ICON/LOGO PROYEK INI
+  githubUrl: 'https://github.com/Greenson22/frontend-arsip-surat-digital-kecmobar', // <-- URL Frontend (Verifikasi jika benar)
+  githubUrlBackend: 'https://github.com/Greenson22/backend-arsip-surat-digital-kecmobar', // <-- URL Backend (Verifikasi jika benar)
+  techStack: [
+    "React", "Redux", "Bootstrap", "MDBReact", "Axios", // Frontend
+    "Django", "Django REST Framework", "Simple JWT", // Backend
+    "MySQL", "Python", "Scikit-learn", // Database & ML
+    "Naive Bayes", "Text Mining", "TF-IDF", // Konsep/Algoritma
+    "Google Generative AI", // AI Tambahan
+    "Extreme Programming" // Metodologi
+  ],
+  mainFeatures: [
+    {
+      icon: <Archive size={24} />,
+      title: "Digitalisasi & CRUD Arsip",
+      description: "Mengelola arsip surat masuk dan keluar secara digital dengan fungsi Tambah, Lihat, Ubah, Hapus (CRUD)." // [cite: 756]
+    },
+    {
+      icon: <Bot size={24} />,
+      title: "Klasifikasi Otomatis (Naïve Bayes)",
+      description: "Mengklasifikasikan surat masuk ke dalam kategori (Edaran, Keputusan, Permohonan, Tugas, Undangan) secara otomatis dengan akurasi 74.4%." // [cite: 308, 313, 314, 410, 1472, 1402]
+    },
+     {
+      icon: <FileText size={24} />,
+      title: "Ekstraksi Entitas Surat (AI)",
+      description: "Fitur 'Analisa' menggunakan AI (Google Generative AI) untuk mengekstrak otomatis informasi penting (nomor, tanggal, perihal, dll.) dari PDF surat saat menambah data." // [cite: 1325, 1333, 1361, 1368]
+    },
+    {
+      icon: <Users size={24} />,
+      title: "Manajemen Pengguna & Hak Akses",
+      description: "Admin dapat mengelola pengguna (CRUD) dan hak akses, sementara pengguna biasa dapat mengelola profil dan password mereka." // [cite: 750, 756, 1381, 1383]
+    },
+    {
+      icon: <Search size={24} />,
+      title: "Pencarian & Pratinjau Dokumen",
+      description: "Memudahkan pencarian arsip berdasarkan kata kunci dan menampilkan pratinjau dokumen PDF langsung di aplikasi."
+    }
+  ],
+  featureShowcase: [
+    {
+      imageSrc: "/images/arsip-surat/login.png", // <-- GANTI DENGAN PATH SCREENSHOT
+      title: "Halaman Login",
+      description: "Antarmuka masuk yang aman menggunakan username dan password dengan autentikasi JWT." // [cite: 1284, 1286] (lihat Gambar 4.30)
+    },
+    {
+      imageSrc: "/images/arsip-surat/surat-masuk.png", // <-- GANTI DENGAN PATH SCREENSHOT
+      title: "Manajemen Surat Masuk",
+      description: "Menampilkan daftar surat masuk dalam tabel, dilengkapi fitur pencarian, filter, paginasi, serta aksi CRUD dan pratinjau dokumen." // [cite: 1317, 1318, 1319] (lihat Gambar 4.34)
+    },
+    {
+      imageSrc: "/images/arsip-surat/tambah-analisa.png", // <-- GANTI DENGAN PATH SCREENSHOT
+      title: "Tambah Surat dengan Analisa AI",
+      description: "Formulir penambahan surat dengan fitur unggah PDF dan tombol 'Analisa' untuk ekstraksi data otomatis menggunakan AI sebelum disimpan." // [cite: 1324, 1325, 1326] (lihat Gambar 4.35)
+    },
+     {
+      imageSrc: "/images/arsip-surat/klasifikasi.png", // <-- GANTI DENGAN PATH SCREENSHOT
+      title: "Klasifikasi Surat Otomatis",
+      description: "Sistem secara otomatis mengklasifikasikan kategori surat masuk menggunakan model Naïve Bayes yang telah dilatih, hasilnya ditampilkan pada tabel." // [cite: 308, 410] (lihat Gambar 4.45)
+    },
+    {
+      imageSrc: "/images/arsip-surat/user-config.png", // <-- GANTI DENGAN PATH SCREENSHOT
+      title: "Pengaturan Pengguna (Admin)",
+      description: "Halaman khusus admin untuk menambah, melihat, mengubah (termasuk status aktif/superuser), dan menghapus akun pengguna sistem." // [cite: 1381, 1383, 1384] (lihat Gambar 4.42)
+    },
+  ],
+  showcaseType: 'desktop', // Tampilan web, cocok untuk desktop
 }
 // ... (Tambahkan proyek lain di sini jika ada)
 ];
 
 // Fungsi helper untuk mengambil data proyek berdasarkan slug
-export const getProjectBySlug = (slug: string) => {
+export const getProjectBySlug = (slug: string): Project | undefined => {
 return projectsData.find(project => project.slug === slug);
 };
