@@ -20,7 +20,10 @@ export async function generateStaticParams() {
   }));
 }
 
-const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
+// --- PERUBAHAN DI SINI ---
+// 1. Hapus "React.FC" dan "const ProjectPage"
+// 2. Tambahkan "async" dan ekspor sebagai "default function"
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = params;
   const project = getProjectBySlug(slug);
 
@@ -46,5 +49,3 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
     </div>
   );
 };
-
-export default ProjectPage;
