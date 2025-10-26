@@ -1,107 +1,103 @@
-# Aplikasi Pendaftaran NPWP (Asisten Entri Data)
+# Portofolio Pribadi - Frendy Rikal Gerung
 
-![Versi Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-![Framework](https://img.shields.io/badge/Framework-PyQt6-green?logo=qt)
-![Database](https://img.shields.io/badge/Database-SQLite-blue?logo=sqlite&logoColor=white)
+Ini adalah kode sumber untuk situs portofolio pribadi saya, yang dirancang untuk menampilkan proyek-proyek, keahlian, dan informasi kontak saya. Proyek ini dibangun dengan tumpukan teknologi modern, berfokus pada kinerja, desain responsif, dan animasi yang halus.
 
-Sebuah aplikasi desktop internal yang dibangun dengan Python, PyQt6, dan SQLite untuk membantu mengelola, mengarsipkan, dan mempercepat proses entri data pendaftaran NPWP.
+## 🚀 Tumpukan Teknologi (Tech Stack)
 
-![Tampilan Utama Aplikasi NPWP Manager](https://user-images.githubusercontent.com/username/repo/raw/main/assets/screenshots/daftar_data.png)
-*(Catatan: Ganti URL gambar di atas dengan path ke gambar `daftar_data.png` di repositori Anda)*
+Proyek ini dibangun menggunakan teknologi modern berbasis TypeScript dan React:
 
----
-
-## 🎯 Latar Belakang & Konteks
-
-Proyek ini berawal dari tantangan nyata yang dihadapi di komunitas desa, di mana banyak warga yang awam teknologi membutuhkan bantuan untuk mendaftarkan NPWP melalui portal online (coretax).
-
-Proses bantuan awal dilakukan secara manual, dengan data pemohon tersebar di catatan pribadi, chat WhatsApp, dan folder yang tidak terorganisir. Hal ini membuat proses entri data ke portal pajak menjadi lambat, tidak efisien, dan sangat rentan terhadap kesalahan (error).
-
-Aplikasi ini dikembangkan untuk menyelesaikan kekacauan tersebut.
-
-## ⚠️ Peringatan Penting
-
-> **Ini adalah Alat Bantu Internal (Asisten Pribadi).**
->
-> Aplikasi ini **TIDAK TERHUBUNG** secara resmi dengan API portal pajak (coretax). Tujuannya murni untuk mengelola dan mengorganisir semua data serta dokumen pemohon secara terstruktur *sebelum* operator (saya) melakukan entri data secara manual ke portal resmi.
-
----
+* **Next.js (App Router):** Digunakan sebagai framework React utama, memanfaatkan App Router untuk routing berbasis file (seperti `/` dan `/proyek/[slug]`).
+* **React & TypeScript:** Menulis komponen UI yang terstruktur dan aman secara tipe.
+* **Tailwind CSS:** Digunakan untuk styling utilitas cepat dan desain responsif.
+* **Framer Motion:** Menganimasikan komponen di seluruh situs untuk pengalaman pengguna yang dinamis.
+* **Lucide React:** Menyediakan pustaka ikon yang bersih dan konsisten.
 
 ## ✨ Fitur Utama
 
-Aplikasi ini mengubah proses yang kacau menjadi alur kerja yang terstruktur.
+* **Desain Responsif Penuh:** Dibangun dengan Tailwind CSS, situs ini beradaptasi dengan mulus dari perangkat seluler hingga desktop.
+* **Halaman Proyek Dinamis:** Menggunakan *dynamic routing* Next.js (`/proyek/[slug]`) untuk secara otomatis membuat halaman detail untuk setiap proyek yang didefinisikan dalam `projectsData.tsx`.
+* **Animasi Halus:** Transisi halaman dan animasi komponen ditenagai oleh `framer-motion` untuk memberikan nuansa yang hidup.
+* **Data Terpusat:** Semua data untuk proyek dan keahlian dikelola secara terpusat di `src/lib/` untuk kemudahan pemeliharaan dan pembaruan.
+* **Arsitektur Komponen:** Kode diatur secara logis ke dalam:
 
-* **🗃️ Manajemen Data Lengkap (CRUD):**
-    Menyediakan fungsionalitas penuh untuk **Menambah** data pemohon baru, **Melihat** semua data dalam tabel, **Mengedit** data yang sudah ada, dan **Menghapus** data dengan aman.
+  * `src/app/`: Rute aplikasi (halaman).
+  * `src/components/`: Komponen React yang dapat digunakan kembali, dibagi lagi menjadi:
 
-* **🔍 Pencarian Instan & Keamanan:**
-    Halaman utama dilengkapi fitur pencarian *real-time* berdasarkan **Nama** atau **NIK**. Data sensitif seperti password disamarkan secara default di dalam tabel untuk menjaga privasi.
+    * `elements`: Komponen UI atomik (misalnya, `Button.tsx`, `Heading.tsx`).
+    * `fragments`: Komponen yang lebih kompleks (misalnya, `ProjectCard.tsx`, `SkillListItem.tsx`).
+    * `layouts`: Bagian halaman utama (misalnya, `HeroLayout.tsx`, `ProjectsLayout.tsx`, `ContactLayout.tsx`).
+    * `views`: Perakitan layout menjadi halaman lengkap (misalnya, `HomeView.tsx`).
 
-* **📂 Arsip Dokumen Cerdas:**
-    Saat menyimpan data baru, aplikasi secara otomatis **membuatkan folder khusus** untuk setiap pemohon (berdasarkan NIK mereka). Folder ini digunakan untuk menyimpan dokumen penting seperti scan KTP, KK, dan file pendukung lainnya.
+## 📦 Instalasi & Menjalankan Secara Lokal
 
-* **🤖 Bantuan Entri Data (AI Assist):**
-    Untuk mempercepat entri data awal dari dokumen fisik (KTP/KK), aplikasi ini memiliki tab "Bantuan AI" yang berfungsi dalam dua langkah:
-    1.  **Menyediakan Prompt:** Memberikan instruksi dan skema JSON yang dirancang khusus untuk disalin ke model AI eksternal (seperti Google AI Studio).
-    2.  **Mengimpor Hasil:** Menerima hasil JSON dari AI tersebut dan secara otomatis mengisi (auto-fill) semua field yang relevan di formulir pendaftaran.
+Untuk menjalankan salinan lokal dari proyek ini:
 
-* **📄 Tampilan Detail Lengkap:**
-    Memungkinkan pengguna melihat rincian lengkap setiap pemohon dalam mode *read-only*, termasuk melihat daftar dokumen yang tersimpan dan tombol untuk **"Membuka Folder Dokumen"** terkait langsung di file explorer.
+### 1. Clone Repositori
 
-* **📓 Fitur Catatan Internal:**
-    Setiap data pemohon memiliki field "Catatan" terpisah untuk menyimpan informasi kontekstual yang tidak termasuk dalam formulir resmi (misal: "Masih menunggu scan KK terbaru").
+```bash
+git clone https://github.com/username/nama-repositori.git
+cd nama-repositori
+```
 
----
+### 2. Install Dependensi
 
-## 🖼️ Galeri & Tampilan
+Pilih manajer paket pilihan Anda:
 
-| Formulir Entri Data | Bantuan AI (Ekstraksi Data) | Detail & Manajemen Dokumen |
-| :---: | :---: | :---: |
-| ![Formulir Entri Data](https://user-images.githubusercontent.com/username/repo/raw/main/assets/screenshots/entri_data.png) | ![Bantuan AI](https://user-images.githubusercontent.com/username/repo/raw/main/assets/screenshots/bantuan_ai.png) | ![Detail & Manajemen Dokumen](https://user-images.githubusercontent.com/username/repo/raw/main/assets/screenshots/management_document.png) |
+```bash
+# Menggunakan npm
+npm install
 
-*(Catatan: Ganti URL gambar di atas dengan path ke gambar di repositori Anda)*
+# Menggunakan yarn
+yarn install
 
----
+# Menggunakan pnpm
+pnpm install
+```
 
-## 🚀 Teknologi yang Digunakan
+### 3. Jalankan Server Pengembangan
 
-* **Bahasa:** Python 3
-* **Antarmuka (GUI):** PyQt6
-* **Database:** SQLite 3 (Lokal)
+Ini akan memulai aplikasi dalam mode pengembangan di `http://localhost:3000`.
 
----
+```bash
+npm run dev
+```
 
-## 📦 Instalasi & Menjalankan
+### 4. Buat Build Produksi
 
-Aplikasi ini dirancang untuk dijalankan di lingkungan desktop.
+Untuk membuat build produksi yang dioptimalkan:
 
-1.  **Clone repositori ini:**
-    ```bash
-    git clone [https://github.com/username/nama-repo.git](https://github.com/username/nama-repo.git)
-    cd nama-repo
-    ```
+```bash
+# Membuat build
+npm run build
 
-2.  **Buat dan aktifkan virtual environment (Opsional tapi direkomendasikan):**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # (Di Windows: venv\Scripts\activate)
-    ```
+# Menjalankan server produksi
+npm run start
+```
 
-3.  **Install dependensi yang diperlukan:**
-    (Jika Anda memiliki `requirements.txt`, gunakan `pip install -r requirements.txt`. Jika tidak, install manual):
-    ```bash
-    pip install PyQt6
-    ```
+## 📂 Struktur Folder (Disederhanakan)
 
-4.  **Jalankan aplikasi:**
-    Database (`pendaftaran_npwp.db`) dan folder dokumen (`dokumen_npwp/`) akan dibuat secara otomatis saat aplikasi dijalankan pertama kali.
-    ```bash
-    python main.py
-    ```
-
----
-
-## 👨‍💻 Pengembang
-
-* **Frendy Rikal Gerung, S.Kom.**
-* [LinkedIn](https://linkedin.com/in/frendy-rikal-gerung-bb450b38a/)
+```
+/
+├── public/
+│   └── images/         # (Diasumsikan, untuk aset seperti profile.jpg)
+├── src/
+│   ├── app/
+│   │   ├── proyek/
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx      # Template halaman detail proyek
+│   │   ├── globals.css           # Stylesheet global Tailwind
+│   │   ├── layout.tsx            # Layout root
+│   │   └── page.tsx              # Halaman utama (homepage)
+│   │
+│   ├── components/
+│   │   ├── elements/             # Komponen UI dasar (Button, Heading, dll)
+│   │   ├── fragments/            # Komponen gabungan (ProjectCard, SkillListItem, dll)
+│   │   ├── layouts/              # Bagian halaman (HeroLayout, SkillsLayout, dll)
+│   │   └── views/                # Perakitan halaman (HomeView)
+│   │
+│   └── lib/
+│       ├── projectsData.tsx      # Data terpusat untuk proyek
+│       └── skillsData.tsx        # Data terpusat untuk keahlian
+│
+└── package.json
+```
