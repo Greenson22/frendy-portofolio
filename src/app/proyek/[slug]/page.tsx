@@ -7,11 +7,12 @@ import ProjectOverviewLayout from '@/components/layouts/ProjectOverviewLayout';
 import ProjectFeaturesLayout from '@/components/layouts/ProjectFeaturesLayout';
 import FooterLayout from '@/components/layouts/FooterLayout';
 
-type ProjectPageProps = {
-  params: {
-    slug: string;
-  };
-};
+// Tipe ProjectPageProps tidak lagi diperlukan, kita akan inline
+// type ProjectPageProps = {
+//   params: {
+//     slug: string;
+//   };
+// };
 
 // (Opsional tapi direkomendasikan) Generate halaman statis saat build
 export async function generateStaticParams() {
@@ -23,7 +24,8 @@ export async function generateStaticParams() {
 // --- PERUBAHAN DI SINI ---
 // 1. Hapus "React.FC" dan "const ProjectPage"
 // 2. Tambahkan "async" dan ekspor sebagai "default function"
-export default async function ProjectPage({ params }: ProjectPageProps) {
+// 3. Ubah type props dari "ProjectPageProps" menjadi inline "{ params }: { params: { slug: string } }"
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const project = getProjectBySlug(slug);
 
@@ -48,4 +50,4 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <FooterLayout />
     </div>
   );
-};
+} // <-- Hapus juga titik-koma (;) yang berlebih di akhir fungsi
