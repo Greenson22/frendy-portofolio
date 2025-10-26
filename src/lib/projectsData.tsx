@@ -1,7 +1,7 @@
 // src/lib/projectsData.tsx
 import { 
   BrainCircuit, Bot, Zap, Award, ListMusic, Search, Download,
-  Database, FolderArchive, ShieldCheck // <-- IKON BARU DITAMBAHKAN
+  Database, FolderArchive, ShieldCheck // <-- Ikon untuk NPWP Manager
 } from 'lucide-react';
 import React from 'react';
 
@@ -154,23 +154,26 @@ export const projectsData: Project[] = [
   showcaseType: 'desktop',
 },
 
-// --- PROYEK BARU ANDA DITAMBAHKAN DI SINI ---
+// --- PROYEK NPWP MANAGER (DIPERBARUI) ---
 {
   slug: 'npwp-manager',
   title: 'Aplikasi Pendaftaran NPWP (Asisten Entri Data)',
-  description: 'Aplikasi desktop (Python & PyQt6) untuk mengelola data pendaftaran NPWP, mengarsipkan dokumen, dan menyediakan bantuan entri data (AI Assist).',
+  description: 'Aplikasi desktop (Python & PyQt6) untuk mengelola data pendaftaran, mengarsipkan dokumen, dan menyediakan bantuan entri data (AI Assist).',
   longDescription: (
     <>
       <p>
         Proyek ini berawal dari tantangan nyata yang saya hadapi di komunitas desa saya. Warga sering meminta bantuan saya untuk membuat akun NPWP karena mereka awam teknologi dan bingung mengisi formulir coretax online.
       </p>
       <p>
-        Awalnya, proses ini manual dan data tersebar, sehingga rentan kesalahan. Untuk mengatasinya, saya mengembangkan aplikasi desktop ini (Python, PyQt6, SQLite) sebagai <strong>alat bantu internal</strong> untuk mengelola data dan dokumen pemohon secara terstruktur sebelum saya melakukan entri data manual ke portal pajak.
+        Awalnya, proses ini manual, data tersebar di chat WhatsApp dan catatan, sehingga rentan kesalahan. Untuk mengatasinya, saya mengembangkan aplikasi desktop ini (Python, PyQt6, SQLite) sebagai <strong>alat bantu internal</strong> saya untuk mengelola data dan dokumen pemohon secara terstruktur sebelum saya melakukan entri data manual ke portal pajak.
+      </p>
+      <p>
+        Penting untuk ditekankan bahwa aplikasi ini <strong>tidak terhubung</strong> dengan portal coretax resmi. Aplikasi ini berfungsi murni sebagai asisten pribadi untuk mengorganisir data mentah, mempercepat proses pengisian formulir manual, dan menghilangkan kekacauan administrasi.
       </p>
     </>
   ),
-  image: '/images/npwp-manager/icon.png', // <-- Placeholder
-  githubUrl: 'https://github.com/Greenson22/Aplikasi-NPWP-Manager', // <-- Placeholder
+  image: '/images/npwp-manager/icon.png',
+  githubUrl: 'https://github.com/Greenson22/Aplikasi-NPWP-Manager',
   techStack: ["Python", "PyQt6", "SQLite", "AI Assist (Prompting)", "Manajemen File", "Desktop App"],
   mainFeatures: [
     {
@@ -186,7 +189,7 @@ export const projectsData: Project[] = [
     {
       icon: <Bot size={24} />,
       title: "Bantuan Entri Data (AI Assist)",
-      description: "Menyediakan prompt & skema JSON untuk mengekstrak data dari gambar (KTP/KK) via AI eksternal, lalu mengimpor hasilnya untuk mengisi form."
+      description: "Menyediakan prompt & skema JSON untuk mengekstrak data dari KTP/KK via AI eksternal, lalu mengimpor hasilnya untuk mengisi form."
     },
     {
       icon: <ShieldCheck size={24} />,
@@ -196,19 +199,24 @@ export const projectsData: Project[] = [
   ],
   featureShowcase: [
     { 
-      imageSrc: "/images/npwp-manager/tabel-data.png", // <-- Placeholder
+      imageSrc: "/images/npwp-manager/daftar_data.png",
       title: "Tampilan Utama & Pencarian", 
-      description: "Menampilkan semua data pendaftar dalam tabel. Fitur pencarian instan (Nama/NIK) dan checkbox 'Tampilkan Password' tersedia di bagian atas. (Sesuai view_widget.py)" 
+      description: "Menampilkan semua data pendaftar dalam tabel. Dilengkapi fitur pencarian instan (Nama/NIK) dan checkbox 'Tampilkan Password' untuk keamanan data sensitif." 
     },
     { 
-      imageSrc: "/images/npwp-manager/form-ai.png", // <-- Placeholder
-      title: "Formulir Entri Data & Bantuan AI", 
-      description: "Tab formulir untuk entri data manual, dan tab 'Bantuan AI' untuk menyalin prompt dan mengimpor hasil JSON untuk pengisian otomatis. (Sesuai form_widget.py)" 
+      imageSrc: "/images/npwp-manager/entri_data.png",
+      title: "Formulir Entri Data", 
+      description: "Tab formulir utama untuk menambah atau mengedit data pemohon secara manual, mencakup data diri, akun, dan status pendaftaran." 
     },
     { 
-      imageSrc: "/images/npwp-manager/detail-data.png", // <-- Placeholder
-      title: "Tampilan Detail Lengkap", 
-      description: "Halaman (read-only) yang menampilkan semua data pemohon, daftar dokumen tersimpan, dan tombol untuk 'Buka Folder Dokumen'. (Sesuai detail_widget.py)" 
+      imageSrc: "/images/npwp-manager/bantuan_ai.png",
+      title: "Bantuan Entri Data (AI Assist)", 
+      description: "Tab 'Bantuan AI' menyediakan prompt/skema JSON untuk diekstrak via AI eksternal (KTP/KK), dan fitur impor JSON untuk mengisi formulir secara otomatis." 
+    },
+    { 
+      imageSrc: "/images/npwp-manager/management_document.png",
+      title: "Detail Data & Manajemen Dokumen", 
+      description: "Halaman (read-only) yang menampilkan semua data pemohon, daftar dokumen tersimpan (KTP/KK), dan tombol untuk 'Buka Folder Dokumen' di file explorer." 
     },
   ],
   showcaseType: 'desktop',
