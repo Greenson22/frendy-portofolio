@@ -230,19 +230,19 @@ export const projectsData: Project[] = [
   longDescription: (
     <>
       <p>
-        Proyek ini merupakan <strong>Skripsi S1</strong> saya yang berfokus pada modernisasi pengelolaan arsip di Kantor Kecamatan Motoling Barat[cite: 209, 211]. Sebelumnya, kantor kecamatan masih menggunakan sistem manual dengan buku catatan dan lemari fisik, yang menyebabkan kesulitan pencarian, risiko kerusakan/kehilangan dokumen, dan inefisiensi[cite: 398, 399, 400].
+        Proyek ini merupakan <strong>Skripsi S1</strong> saya yang berfokus pada modernisasi pengelolaan arsip di Kantor Kecamatan Motoling Barat. Sebelumnya, kantor kecamatan masih menggunakan sistem manual dengan buku catatan dan lemari fisik, yang menyebabkan kesulitan pencarian, risiko kerusakan/kehilangan dokumen, dan inefisiensi.
       </p>
       <p>
-        Aplikasi web ini dirancang untuk mengatasi masalah tersebut dengan menyediakan platform digital terpusat untuk arsip surat masuk dan keluar[cite: 308, 309, 407, 409]. Tujuan utamanya adalah meningkatkan efisiensi administrasi, memenuhi regulasi pemerintah terkait Sistem Pemerintahan Berbasis Elektronik (SPBE), dan meningkatkan kualitas pelayanan publik[cite: 396, 401, 407, 411, 441, 442, 443, 444].
+        Aplikasi web ini dirancang untuk mengatasi masalah tersebut dengan menyediakan platform digital terpusat untuk arsip surat masuk dan keluar. Tujuan utamanya adalah meningkatkan efisiensi administrasi, memenuhi regulasi pemerintah terkait Sistem Pemerintahan Berbasis Elektronik (SPBE), dan meningkatkan kualitas pelayanan publik.
       </p>
       <p>
-        Salah satu fitur unggulan adalah <strong>klasifikasi otomatis surat masuk</strong> menggunakan algoritma Naïve Bayes yang dilatih dengan data teks surat[cite: 308, 313, 410]. Pengembangan dilakukan dengan metode Extreme Programming, menggunakan React JS untuk frontend dan Django untuk backend[cite: 310, 311, 411, 621, 676, 677].
+        Salah satu fitur unggulan adalah <strong>klasifikasi otomatis surat masuk</strong> menggunakan algoritma Naïve Bayes yang dilatih dengan data teks surat. Pengembangan dilakukan dengan metode Extreme Programming, menggunakan React JS untuk frontend dan Django untuk backend.
       </p>
     </>
   ),
   image: '/images/arsip-surat/icon.png', // <-- GANTI DENGAN PATH ICON/LOGO PROYEK INI
-  githubUrl: 'https://github.com/Greenson22/frontend-arsip-surat-digital-kecmobar', // <-- URL Frontend (Verifikasi jika benar)
-  githubUrlBackend: 'https://github.com/Greenson22/backend-arsip-surat-digital-kecmobar', // <-- URL Backend (Verifikasi jika benar)
+  githubUrl: 'https://github.com/Greenson22/frontend-arsip-surat-digital-kecmobar', // <-- Frontend
+  githubUrlBackend: 'https://github.com/Greenson22/backend-arsip-surat-digital-kecmobar', // <-- Backend
   techStack: [
     "React", "Redux", "Bootstrap", "MDBReact", "Axios", // Frontend
     "Django", "Django REST Framework", "Simple JWT", // Backend
@@ -255,22 +255,22 @@ export const projectsData: Project[] = [
     {
       icon: <Archive size={24} />,
       title: "Digitalisasi & CRUD Arsip",
-      description: "Mengelola arsip surat masuk dan keluar secara digital dengan fungsi Tambah, Lihat, Ubah, Hapus (CRUD)." // [cite: 756]
+      description: "Mengelola arsip surat masuk dan keluar secara digital dengan fungsi Tambah, Lihat, Ubah, Hapus (CRUD)."
     },
     {
       icon: <Bot size={24} />,
       title: "Klasifikasi Otomatis (Naïve Bayes)",
-      description: "Mengklasifikasikan surat masuk ke dalam kategori (Edaran, Keputusan, Permohonan, Tugas, Undangan) secara otomatis dengan akurasi 74.4%." // [cite: 308, 313, 314, 410, 1472, 1402]
+      description: "Mengklasifikasikan surat masuk ke dalam kategori (Edaran, Keputusan, Permohonan, Tugas, Undangan) secara otomatis dengan akurasi 74.4%."
     },
      {
       icon: <FileText size={24} />,
       title: "Ekstraksi Entitas Surat (AI)",
-      description: "Fitur 'Analisa' menggunakan AI (Google Generative AI) untuk mengekstrak otomatis informasi penting (nomor, tanggal, perihal, dll.) dari PDF surat saat menambah data." // [cite: 1325, 1333, 1361, 1368]
+      description: "Fitur 'Analisa' menggunakan AI (Google Generative AI) untuk mengekstrak otomatis informasi penting (nomor, tanggal, perihal, dll.) dari PDF surat saat menambah data."
     },
     {
       icon: <Users size={24} />,
       title: "Manajemen Pengguna & Hak Akses",
-      description: "Admin dapat mengelola pengguna (CRUD) dan hak akses, sementara pengguna biasa dapat mengelola profil dan password mereka." // [cite: 750, 756, 1381, 1383]
+      description: "Admin dapat mengelola pengguna (CRUD) dan hak akses, sementara pengguna biasa dapat mengelola profil dan password mereka."
     },
     {
       icon: <Search size={24} />,
@@ -282,27 +282,27 @@ export const projectsData: Project[] = [
     {
       imageSrc: "/images/arsip-surat/login.png", // <-- GANTI DENGAN PATH SCREENSHOT
       title: "Halaman Login",
-      description: "Antarmuka masuk yang aman menggunakan username dan password dengan autentikasi JWT." // [cite: 1284, 1286] (lihat Gambar 4.30)
+      description: "Antarmuka masuk yang aman menggunakan username dan password dengan autentikasi JWT."
     },
     {
       imageSrc: "/images/arsip-surat/surat-masuk.png", // <-- GANTI DENGAN PATH SCREENSHOT
       title: "Manajemen Surat Masuk",
-      description: "Menampilkan daftar surat masuk dalam tabel, dilengkapi fitur pencarian, filter, paginasi, serta aksi CRUD dan pratinjau dokumen." // [cite: 1317, 1318, 1319] (lihat Gambar 4.34)
+      description: "Menampilkan daftar surat masuk dalam tabel, dilengkapi fitur pencarian, filter, paginasi, serta aksi CRUD dan pratinjau dokumen."
     },
     {
       imageSrc: "/images/arsip-surat/tambah-analisa.png", // <-- GANTI DENGAN PATH SCREENSHOT
       title: "Tambah Surat dengan Analisa AI",
-      description: "Formulir penambahan surat dengan fitur unggah PDF dan tombol 'Analisa' untuk ekstraksi data otomatis menggunakan AI sebelum disimpan." // [cite: 1324, 1325, 1326] (lihat Gambar 4.35)
+      description: "Formulir penambahan surat dengan fitur unggah PDF dan tombol 'Analisa' untuk ekstraksi data otomatis menggunakan AI sebelum disimpan."
     },
      {
       imageSrc: "/images/arsip-surat/klasifikasi.png", // <-- GANTI DENGAN PATH SCREENSHOT
       title: "Klasifikasi Surat Otomatis",
-      description: "Sistem secara otomatis mengklasifikasikan kategori surat masuk menggunakan model Naïve Bayes yang telah dilatih, hasilnya ditampilkan pada tabel." // [cite: 308, 410] (lihat Gambar 4.45)
+      description: "Menampilkan hasil klasifikasi otomatis kategori surat masuk yang dilakukan oleh model Naïve Bayes pada tabel data."
     },
     {
       imageSrc: "/images/arsip-surat/user-config.png", // <-- GANTI DENGAN PATH SCREENSHOT
       title: "Pengaturan Pengguna (Admin)",
-      description: "Halaman khusus admin untuk menambah, melihat, mengubah (termasuk status aktif/superuser), dan menghapus akun pengguna sistem." // [cite: 1381, 1383, 1384] (lihat Gambar 4.42)
+      description: "Halaman khusus admin untuk menambah, melihat, mengubah (termasuk status aktif/superuser), dan menghapus akun pengguna sistem."
     },
   ],
   showcaseType: 'desktop', // Tampilan web, cocok untuk desktop
