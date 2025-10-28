@@ -3,12 +3,14 @@ import React from 'react';
 
 // Impor ikon-ikon yang kita pindahkan dari SkillsLayout
 import { BrainCircuit, Gamepad2 } from 'lucide-react';
-import { 
-    SiPython, SiJavascript, SiNextdotjs, SiExpress, SiLaravel, 
-    SiAndroid, SiCplusplus, SiFlutter 
+import {
+    SiPython, SiNextdotjs, SiExpress,
+    SiAndroid, SiFlutter
 } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa';
+// import { FaJava } from 'react-icons/fa'; // Dihapus
+// import { TbWorldWww } from 'react-icons/tb'; // Sudah ada di professional
 import { TbWorldWww } from 'react-icons/tb';
+
 
 // Tipe data untuk skill
 export type Skill = {
@@ -24,12 +26,12 @@ export const skillsData: Skill[] = [
   { name: 'Next.js', level: 90, icon: <SiNextdotjs size={36} className="text-black dark:text-white" />, category: 'tech' },
   { name: 'Flutter', level: 85, icon: <SiFlutter size={36} className="text-[#02569B]" />, category: 'tech' },
   { name: 'Python', level: 85, icon: <SiPython size={36} className="text-[#3776AB]" />, category: 'tech' },
-  { name: 'JavaScript', level: 85, icon: <SiJavascript size={36} className="text-[#F7DF1E]" />, category: 'tech' },
+  // { name: 'JavaScript', level: 85, icon: <SiJavascript size={36} className="text-[#F7DF1E]" />, category: 'tech' }, // Dihapus
   { name: 'Express.js', level: 80, icon: <SiExpress size={36} className="text-black dark:text-white" />, category: 'tech' },
-  { name: 'Java', level: 75, icon: <FaJava size={36} className="text-[#007396]" />, category: 'tech' },
-  { name: 'C++', level: 70, icon: <SiCplusplus size={36} className="text-[#00599C]" />, category: 'tech' },
-  { name: 'Laravel', level: 65, icon: <SiLaravel size={36} className="text-[#FF2D20]" />, category: 'tech' },
-  
+  // { name: 'Java', level: 75, icon: <FaJava size={36} className="text-[#007396]" />, category: 'tech' }, // Dihapus
+  // { name: 'C++', level: 70, icon: <SiCplusplus size={36} className="text-[#00599C]" />, category: 'tech' }, // Dihapus
+  // { name: 'Laravel', level: 65, icon: <SiLaravel size={36} className="text-[#FF2D20]" />, category: 'tech' }, // Dihapus
+
   // Kategori Keahlian Profesional
   { name: 'Web Development', level: 95, icon: <TbWorldWww size={36} className="text-teal-500" />, category: 'professional' },
   { name: 'Android Development', level: 90, icon: <SiAndroid size={36} className="text-[#3DDC84]" />, category: 'professional' },
