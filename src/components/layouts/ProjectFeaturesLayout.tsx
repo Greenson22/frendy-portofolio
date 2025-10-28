@@ -26,8 +26,21 @@ const ProjectFeaturesLayout: React.FC<ProjectFeaturesLayoutProps> = ({ features,
     : "Tampilan antarmuka utama dari aplikasi.";
 
   return (
-    <section className="bg-slate-50 py-16 overflow-x-hidden">
-      <div className="max-w-5xl mx-auto px-4">
+    // --- PERUBAHAN: Latar diubah ke putih, 'relative' dan 'overflow-hidden' ditambah ---
+    <section className="bg-white py-20 relative overflow-hidden">
+      
+      {/* --- TAMBAHAN: Pola titik sebagai latar belakang --- */}
+      <div 
+        className="absolute inset-0 opacity-40" 
+        style={{
+          backgroundImage: 'radial-gradient(circle, #e2e8f0 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
+          zIndex: 0
+        }}
+      ></div>
+
+      {/* --- PERUBAHAN: Konten dibuat 'relative' agar di atas pola titik --- */}
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         <motion.div {...scrollAnimation} className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-slate-800 tracking-tight flex items-center justify-center gap-3">
             <Camera size={36}/> {title}
