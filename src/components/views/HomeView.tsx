@@ -1,3 +1,4 @@
+// src/components/views/HomeView.tsx
 import React from 'react';
 import NavbarLayout from "../layouts/NavbarLayout";
 import HeroLayout from "../layouts/HeroLayout";
@@ -11,7 +12,8 @@ const HomeView: React.FC = () => {
   return (
     <>
       <NavbarLayout />
-      <main className="container mx-auto px-4">
+      {/* --- PERUBAHAN: Padding horizontal disesuaikan untuk mobile (px-2) dan layar lebih besar (sm:px-4) --- */}
+      <main className="container mx-auto px-2 sm:px-4">
         <HeroLayout />
         <AboutLayout />
         <SkillsLayout />
