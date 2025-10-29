@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { Variants } from 'framer-motion'; // <-- 'motion' removed
 
 // Varian untuk item individu di dalam grid
 export const skillItemVariants: Variants = {

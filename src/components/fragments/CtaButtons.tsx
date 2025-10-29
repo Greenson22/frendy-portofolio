@@ -1,6 +1,6 @@
 // src/components/fragments/CtaButtons.tsx
 import React from 'react';
-import { Github, Download, Server } from 'lucide-react';
+import { Github, Server } from 'lucide-react'; // <-- 'Download' removed
 import { motion, Variants } from 'framer-motion';
 
 type CtaButtonsProps = {

@@ -2,7 +2,7 @@
 import {
   BrainCircuit, Bot, Zap, Award, ListMusic, Search, Download,
   Database, FolderArchive, ShieldCheck,
-  Archive, FileText, Users, Mail
+  Archive, FileText, Users // <-- 'Mail' import removed
 } from 'lucide-react';
 import React from 'react';
 
@@ -38,7 +38,9 @@ export const projectsData: Project[] = [
   longDescription: (
     <>
       <p>
-        <strong>RSpace</strong> adalah ekosistem produktivitas lintas platform (📱 Android & 💻 Desktop) yang dirancang sebagai "ruang kedua" digital ✨ untuk para pembelajar dan profesional. Aplikasi ini mengintegrasikan manajemen pengetahuan 📚, pelacakan tugas ✅, dan jurnal aktivitas 📅 ke dalam satu platform yang kohesif.
+        {/* --- PERUBAHAN DI SINI --- */}
+        <strong>RSpace</strong> adalah ekosistem produktivitas lintas platform (📱 Android & 💻 Desktop) yang dirancang sebagai &ldquo;ruang kedua&rdquo; digital ✨ untuk para pembelajar dan profesional. Aplikasi ini mengintegrasikan manajemen pengetahuan 📚, pelacakan tugas ✅, dan jurnal aktivitas 📅 ke dalam satu platform yang kohesif.
+        {/* --- AKHIR PERUBAHAN --- */}
       </p>
       <p>
         Dengan arsitektur 💾 <em>offline-first</em>, RSpace memastikan semua data pengguna aman tersimpan di perangkat lokal, sambil menyediakan opsi sinkronisasi dan backup online. Inti dari RSpace adalah sistem <strong>Spaced Repetition</strong> 🧠🔁 cerdas yang terintegrasi dengan kecerdasan buatan dari <strong>Google Gemini</strong> ✨🤖 untuk mengoptimalkan proses belajar dan retensi informasi.
@@ -52,7 +54,7 @@ export const projectsData: Project[] = [
     "Spaced Repetition", "Gamification", "AI Assistant", "Offline First",
     "Data Synchronization", "Secure Storage", "Webview"
   ],
-  // Fitur utama sudah menggunakan ikon, jadi kita biarkan seperti itu
+  // ... (sisa file tidak berubah) ...
   mainFeatures: [
     {
       icon: <BrainCircuit size={24} />,

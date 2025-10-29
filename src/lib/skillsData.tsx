@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Impor ikon-ikon yang kita pindahkan dari SkillsLayout
-import { BrainCircuit, Gamepad2 } from 'lucide-react';
+import { BrainCircuit } from 'lucide-react'; // <-- 'Gamepad2' removed
 import {
     SiPython, SiNextdotjs, SiExpress,
     SiAndroid, SiFlutter
@@ -30,7 +30,7 @@ export const skillsData: Skill[] = [
   { name: 'Express.js', level: 80, icon: <SiExpress size={36} className="text-black dark:text-white" />, category: 'tech' },
   // { name: 'Java', level: 75, icon: <FaJava size={36} className="text-[#007396]" />, category: 'tech' }, // Dihapus
   // { name: 'C++', level: 70, icon: <SiCplusplus size={36} className="text-[#00599C]" />, category: 'tech' }, // Dihapus
-  // { name: 'Laravel', level: 65, icon: <SiLaravel size={36} className="text-[#FF2D20]" />, category: 'tech' }, // Dihapus
+  // { name:T 'Laravel', level: 65, icon: <SiLaravel size={36} className="text-[#FF2D20]" />, category: 'tech' }, // Dihapus
 
   // Kategori Keahlian Profesional
   { name: 'Web Development', level: 95, icon: <TbWorldWww size={36} className="text-teal-500" />, category: 'professional' },
