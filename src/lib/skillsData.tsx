@@ -35,6 +35,5 @@ export const skillsData: Skill[] = [
   // Kategori Keahlian Profesional
   { name: 'Web Development', level: 95, icon: <TbWorldWww size={36} className="text-teal-500" />, category: 'professional' },
   { name: 'Android Development', level: 90, icon: <SiAndroid size={36} className="text-[#3DDC84]" />, category: 'professional' },
-  { name: 'Game Development', level: 70, icon: <Gamepad2 size={36} className="text-indigo-500" />, category: 'professional' },
   { name: 'Problem Solving', level: 95, icon: <BrainCircuit size={36} className="text-amber-500" />, category: 'professional' },
 ];
