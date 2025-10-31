@@ -3,7 +3,8 @@
 import React from 'react';
 import Heading from "../elements/Heading";
 import { motion } from 'framer-motion';
-import { Calendar, GraduationCap, MapPin } from 'lucide-react';
+import Image from 'next/image'; 
+import { Calendar, MapPin } from 'lucide-react'; 
 
 const AboutLayout: React.FC = () => {
   return (
@@ -45,20 +46,38 @@ const AboutLayout: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {/* Kartu Pendidikan */}
+            {/* Kartu Pendidikan [MODIFIKASI DI SINI] */}
             <div className="p-4 bg-lime-50 rounded-lg flex items-start shadow-sm hover:shadow-lg transition-shadow border-l-4 border-green-400">
-              <div className="bg-green-100 p-3 rounded-lg mr-4">
-                <GraduationCap className="text-green-600" />
+              {/* [PERBAIKAN] Dihapus w-[48px] dan h-[48px] dari div ini */}
+              <div className="bg-green-100 p-3 rounded-lg mr-4 flex items-center justify-center">
+                <Image
+                  src="https://unima.ac.id/uploads/img_logo/1650416196421.png"
+                  alt="Logo UNIMA"
+                  width={36}  // Ukuran gambar 36x36
+                  height={36} // Ukuran gambar 36x36
+                  className="object-contain"
+                />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800">Pendidikan</h3>
-                <p className="text-gray-600">Teknik Informatika, Universitas Negeri Manado (UNIMA).</p>
+                <p className="text-gray-600">
+                  Teknik Informatika,{' '}
+                  <a
+                    href="https://maps.google.com/?cid=6143776764742799149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:underline font-medium"
+                  >
+                    Universitas Negeri Manado (UNIMA)
+                  </a>.
+                </p>
               </div>
             </div>
 
             {/* Kartu Info Pribadi dalam Grid */}
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 bg-lime-50 rounded-lg flex items-start shadow-sm hover:shadow-lg transition-shadow border-l-4 border-teal-400">
+                {/* Div ini (dan di bawah) tidak memiliki ukuran tetap, jadi ukurannya pas */}
                 <div className="bg-teal-100 p-3 rounded-lg mr-4">
                   <Calendar className="text-teal-600" />
                 </div>
@@ -67,13 +86,24 @@ const AboutLayout: React.FC = () => {
                   <p className="text-gray-600">22 Feb 2002</p>
                 </div>
               </div>
+              
+              {/* Kartu Lokasi */}
               <div className="p-4 bg-lime-50 rounded-lg flex items-start shadow-sm hover:shadow-lg transition-shadow border-l-4 border-purple-400">
                 <div className="bg-purple-100 p-3 rounded-lg mr-4">
                   <MapPin className="text-purple-600" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800">Lokasi</h3>
-                  <p className="text-gray-600">Raanan Baru</p>
+                  <p className="text-gray-600">
+                    <a
+                      href="https://maps.google.com/?cid=722735519590791629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:underline font-medium"
+                    >
+                      Raanan Baru
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>

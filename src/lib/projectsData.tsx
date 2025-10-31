@@ -116,18 +116,15 @@ const multiTimerProject: Project = {
 
 // Data terpusat untuk semua proyek
 export const projectsData: Project[] = [
-  multiTimerProject, // [DITAMBAHKAN] Proyek baru Anda
+  multiTimerProject, // Proyek baru Anda
   {
     slug: 'rspace',
     title: 'RSpace',
-    // Deskripsi singkat dengan emoji platform dan AI
     description: 'Aplikasi Android 📱 & Desktop 💻 untuk manajemen konten, produktivitas, dan pembelajaran dengan integrasi AI 🧠 (Google Gemini).',
     longDescription: (
       <>
         <p>
-          {/* --- PERUBAHAN DI SINI --- */}
           <strong>RSpace</strong> adalah ekosistem produktivitas lintas platform (📱 Android & 💻 Desktop) yang dirancang sebagai &ldquo;ruang kedua&rdquo; digital ✨ untuk para pembelajar dan profesional. Aplikasi ini mengintegrasikan manajemen pengetahuan 📚, pelacakan tugas ✅, dan jurnal aktivitas 📅 ke dalam satu platform yang kohesif.
-          {/* --- AKHIR PERUBAHAN --- */}
         </p>
         <p>
           Dengan arsitektur 💾 <em>offline-first</em>, RSpace memastikan semua data pengguna aman tersimpan di perangkat lokal, sambil menyediakan opsi sinkronisasi dan backup online. Inti dari RSpace adalah sistem <strong>Spaced Repetition</strong> 🧠🔁 cerdas yang terintegrasi dengan kecerdasan buatan dari <strong>Google Gemini</strong> ✨🤖 untuk mengoptimalkan proses belajar dan retensi informasi.
@@ -163,7 +160,6 @@ export const projectsData: Project[] = [
         description: "Kumpulkan poin \"Neuron\" setiap kali Anda menyelesaikan sesi belajar atau menghapus data, menambahkan elemen motivasi dalam proses belajar."
       }
     ],
-    // Showcase fitur dengan tambahan emoji yang relevan
     featureShowcase: [
       {
         imageSrc: "/images/rspace/dashboard.jpg",
@@ -196,7 +192,6 @@ export const projectsData: Project[] = [
   {
     slug: 'youtubemusicdownloader',
     title: 'Youtube Music Downloader Suite',
-    // Deskripsi singkat dengan emoji musik dan desktop
     description: 'Aplikasi desktop 💻 untuk mengunduh musik 🎵 dari YouTube secara massal berdasarkan daftar dari file 📝.',
     longDescription: (
       <>
@@ -211,7 +206,6 @@ export const projectsData: Project[] = [
     image: '/images/youtubemusicdownloader/icon.png',
     githubUrl: 'https://github.com/Greenson22/Music-Manager.git',
     techStack: ["Python", "PyQt6", "yt-dlp", "Spotipy", "Threading", "FFmpeg"],
-    // Fitur utama menggunakan ikon Lucide
     mainFeatures: [
       {
         icon: <ListMusic size={24} />,
@@ -229,7 +223,6 @@ export const projectsData: Project[] = [
         description: "Menyediakan antarmuka tabel untuk memilih lagu, filter cerdas berdasarkan ukuran file, dan pilihan format unduhan (MP3, video, atau keduanya)."
       }
     ],
-    // Showcase fitur dengan emoji
     featureShowcase: [
       {
         imageSrc: "/images/youtubemusicdownloader/spotify-populer.png",
@@ -252,7 +245,6 @@ export const projectsData: Project[] = [
   {
     slug: 'npwp-manager',
     title: 'Aplikasi Pendaftaran NPWP (Asisten Entri Data)',
-    // Deskripsi singkat dengan emoji desktop dan AI
     description: 'Aplikasi desktop 💻 (Python & PyQt6) untuk mengelola data pendaftaran NPWP 📄, mengarsipkan dokumen 📂, dan menyediakan bantuan entri data 🤖 (AI Assist).',
     longDescription: (
       <>
@@ -270,7 +262,6 @@ export const projectsData: Project[] = [
     image: '/images/npwp-manager/icon.png',
     githubUrl: 'https://github.com/Greenson22/Aplikasi-NPWP-Manager',
     techStack: ["Python", "PyQt6", "SQLite", "AI Assist (Prompting)", "Manajemen File", "Desktop App"],
-    // Fitur utama menggunakan ikon Lucide
     mainFeatures: [
       {
         icon: <Database size={24} />,
@@ -293,7 +284,6 @@ export const projectsData: Project[] = [
         description: "Dilengkapi fitur pencarian real-time (Nama/NIK) dan menyamarkan data sensitif seperti password di dalam tabel."
       }
     ],
-    // Showcase fitur dengan emoji
     featureShowcase: [
       {
         imageSrc: "/images/npwp-manager/daftar_data.png",
@@ -321,7 +311,6 @@ export const projectsData: Project[] = [
   {
     slug: 'arsip-surat-kecamatan',
     title: 'Sistem Arsip Surat Digital Kec. Motoling Barat',
-    // Deskripsi singkat dengan emoji web, arsip, dan AI
     description: 'Aplikasi web 🌐 (React & Django) untuk digitalisasi 📑, pengelolaan, dan klasifikasi otomatis 🤖 arsip surat masuk/keluar menggunakan Text Mining dan Naïve Bayes.',
     longDescription: (
       <>
@@ -347,7 +336,6 @@ export const projectsData: Project[] = [
       "Google Generative AI",
       "Extreme Programming"
     ],
-    // Fitur utama menggunakan ikon Lucide
     mainFeatures: [
       {
         icon: <Archive size={24} />,
@@ -375,7 +363,6 @@ export const projectsData: Project[] = [
         description: "Memudahkan pencarian arsip berdasarkan kata kunci dan menampilkan pratinjau dokumen PDF langsung di aplikasi."
       }
     ],
-    // Showcase fitur dengan emoji
     featureShowcase: [
       {
         imageSrc: "/images/arsip-surat/login.png",
